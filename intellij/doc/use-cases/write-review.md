@@ -39,7 +39,6 @@ The workflow can be specified at different levels of detail:
 
 Please be sure indicate what level of detail the workflow you include represents.
 
-For example, for _process sale_:
 
 ```plantuml
 @startuml
