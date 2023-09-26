@@ -24,7 +24,7 @@ What must be true upon successful completion of the use case.
 
 * Review is saved.
 * Review is visible/accessible to everyone.
-* ?
+* ??
 
 
 ## 4. Workflow
