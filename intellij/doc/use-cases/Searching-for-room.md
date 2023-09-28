@@ -1,7 +1,7 @@
 # Use case name, Searching for a room
 
 ## 1. Primary actor and goals
---Students--:- Their goals are to search for a room that accompany them the most like how big is that or is it a single or not.
+--Students--:- Their goals are to search for a room that accompany them in any dorms. in any cases like how big is that or is it a single or not.
 
 
 
@@ -24,7 +24,7 @@ What must be true upon successful completion of the use case.
 For example, for _Students search for a room_:
 
 * Room is available.
-* Saved the favourite rooms.
+* Able to see all rooms.
 * Show the recent reviewed rooms.
 * show the most high viewed rooms.
 
@@ -39,9 +39,6 @@ The workflow can be specified at different levels of detail:
 * __Casual__: most common scenarios and variations;
 * __Fully-dressed__: all scenarios and variations.
 
-Please be sure indicate what level of detail the workflow you include represents.
-
-For example, for _process sale_:
 
 ```plantuml
 @startuml
@@ -52,26 +49,28 @@ title Students Searching for a room (casual level)
 
 'define the lanes
 |#application|Student|
-|#implementation|App System|
+|#implementation|System Management|
 
 |Student|
 start
-:Enter app;
+:user name; 
+:Home page;
 :Choose house, floor, availability, and other preferences;
 
-|App System|
+|System Management|
   :Enter House;
-  : Choose the floor;
-  : Choose the single or the doubles room;
+  :Choose the floor;
+  :Choose the single or the doubles room;
   |Student| 
   : Check the reviews;
-  while (Do they like it) is (yes)
+  if (Do they like it) is (yes)
   : Favorite room;
-  endwhile (No)
-  : Searching other room;
+  else (No)
+ 
+  endif 
+   : Searching other room;
+  : Exit the app;
   
-  
-  : Favorite the room;
 
 stop
 @enduml
