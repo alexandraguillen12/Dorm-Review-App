@@ -13,7 +13,7 @@ pictures and rate room.
 ratings, and availability. Wants verified, accurate information to base their decisions on.
 
 
-## 2. Preconditions
+## 3. Preconditions
 
 * Past/current resident is a Vassar student and has stayed in the room they are reviewing.
 * The resident has searched for and found the room they are reviewing.
@@ -24,8 +24,7 @@ ratings, and availability. Wants verified, accurate information to base their de
 * Review is visible/accessible to everyone.
 
 
-## 4. Workflow
-
+## 5. Workflow
 
 ```plantuml
 @startuml
