@@ -51,6 +51,5 @@ Filter <|.. HouseFilter
 HouseFilter : name : House
 HouseFilter : filter(Set<Room>) : Set<Room>
 
-
 @enduml
 ```
