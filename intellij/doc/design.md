@@ -53,3 +53,17 @@ HouseFilter : filter(Set<Room>) : Set<Room>
 
 @enduml
 ```
+
+```plantuml
+@startuml
+Student -> PosUI: Input search criteria 
+PosUI --> Filter: House 
+PosUI --> Filter: Floor
+PosUI --> Filter: RoomType 
+PosUI --> Filter: Availability 
+Filter --> PosUI: FilteredList 
+PosUI --> Student: Display FilteredList 
+Student --> PosUI: Press Room 
+
+@enduml
+```
