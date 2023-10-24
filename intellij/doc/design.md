@@ -56,14 +56,18 @@ HouseFilter : filter(Set<Room>) : Set<Room>
 
 ```plantuml
 @startuml
-Student -> PosUI: Input search criteria 
-PosUI --> Filter: House 
-PosUI --> Filter: Floor
-PosUI --> Filter: RoomType 
-PosUI --> Filter: Availability 
-Filter --> PosUI: FilteredList 
-PosUI --> Student: Display FilteredList 
+Student -> PosUI: Specify House Name 
+PosUI --> Controller: Set Search Criteria HouseName  
+PosUI --> Controller: Search()
+create HouseFilter 
+Controller --> HouseFilter: create 
+Controller --> RoomLibrary: Search(filterSet)
+RoomLibrary --> RoomLibrary: do search  
+RoomLibrary --> Controller: return roomList  
+Controller --> PosUI: display(roomList) 
+PosUI --> Student: Show results 
 Student --> PosUI: Press Room 
+PosUI --> Controller: selectRoom(ID)
 
 @enduml
 ```
