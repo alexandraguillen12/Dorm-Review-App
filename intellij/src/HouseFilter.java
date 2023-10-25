@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class HouseFilter {
 
@@ -13,7 +10,7 @@ public class HouseFilter {
     */
 
     Set<Room> filter(Set<Room> roomList, House name){
-        Set<Room> filteredList = null;
+        Set<Room> filteredList = new HashSet<Room>();
         for (Room r : roomList) {
             if (name == r.getHouse()) {
                 filteredList.add(r);

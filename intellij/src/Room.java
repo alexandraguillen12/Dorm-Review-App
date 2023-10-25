@@ -26,4 +26,8 @@ public class Room {
         return this.Availability;
     };
 
+    public String toString(){
+        return String.format("Room (%s, %d, %s, %s)", this.House, this.Floor, this.RoomType, this.Availability);
+    };
+
 }
