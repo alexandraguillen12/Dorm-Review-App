@@ -1,9 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Controller {
 
+
     public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
 
         Room r1 = new Room(House.JEWETT, 6, RoomType.SINGLE, false);
         Room r2 = new Room(House.CUSHING, 4, RoomType.SINGLE, false);
@@ -22,10 +23,25 @@ public class Controller {
 
         House name;
 
-        //public void search_by_HouseName(House name){ };
+        System.out.println("Dorm Review app: Search for a room");
+        System.out.println("Enter house: ");
+        String input = scanner.nextLine();
+        name = House.valueOf(input.toUpperCase());
 
-        HouseFilter houseFilter = new HouseFilter();
+        //public void search_by_HouseName(House name){
+            HouseFilter houseFilter = new HouseFilter(name);
+        //};
 
-        System.out.println(exRoomLib.toString());
+        Set<Room> roomSet = new HashSet<>(exRooms);
+
+        Set<Room> f1 = houseFilter.filter(roomSet);
+
+        Set<Filter> filterSet = new HashSet<>();
+        filterSet.add(houseFilter);
+        Set<Room> roomList = exRoomLib.Search(roomSet, filterSet);
+
+
+        System.out.println(roomList.toString());
+        //System.out.println(exRoomLib.toString());
     }
 }
