@@ -1,4 +1,4 @@
-# Vision
+ # Vision
 
 The target audience for the dorm review app is Vassar students who live on campus. During the room draw process, 
 students are only able to see the rooms available in the house and section that they are entering the room draw for. 
@@ -37,5 +37,5 @@ there so that they can give their review or upload picture of the room to better
 Since it is most likely that not everyone on campus puts information into the app,
 then we can get basic information from Housing to give students some idea/info of the room.
 Also, the student can know if the room is even available for them to choose from.
-- enter room info
-- enter availability
+- managing rooms: All the rooms that are usable for Vassar students will be posted through the system.
+- enter availability: The system will be show only the ones that are available. 
