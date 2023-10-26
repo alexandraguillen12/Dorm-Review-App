@@ -26,8 +26,7 @@ public class Controller {
         System.out.println("Dorm Review app: Search for a room\n");
         System.out.println("Although, ultimately, we will have four filters, one for each: house, floor, room type, and availability, for now, we will just be using the house filter.\n");
         System.out.println(" List of the houses are: Main, Strong, Raymond, Davison, Lathrop, Jewett, Josselyn, Cushing, Noyes\n" +
-                "-If you want to search all the rooms, enter ALL.\n-If you want to stop searching, enter EXIT.\n" +
-                "-If there is no match for the house you entered, it will print NO RESULTS.\n ");
+                "-If you want to search all the rooms, enter ALL.\n-If you want to stop searching, enter EXIT.\n");
 
         while(true) {
             System.out.println("Enter house: ");
