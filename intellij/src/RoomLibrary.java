@@ -5,9 +5,8 @@ public class RoomLibrary {
     public ArrayList<Room> rooms = new ArrayList<>();
 
 
-
     public int size = 5;
-    // method or field? (list with fixed size)
+    //just for this example
 
     public RoomLibrary(ArrayList<Room> rooms){
         this.rooms = rooms;
