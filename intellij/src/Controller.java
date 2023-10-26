@@ -24,6 +24,11 @@ public class Controller {
         House name;
 
         System.out.println("Dorm Review app: Search for a room");
+        System.out.println(" _Use case is specified using only House case.");
+        System.out.println(" List of the houses are: Main, Strong, Raymond, Davidson, Lathrop, Jewett, Josselyn, Cushing, Noyes," +
+                "If you want to search all the rooms write ALL, if you want to stop searching press EXIT," +
+                "If there's no matching for the house print NO RESULTS, ")
+
         System.out.println("Enter house: ");
         String input = scanner.nextLine();
         name = House.valueOf(input.toUpperCase());

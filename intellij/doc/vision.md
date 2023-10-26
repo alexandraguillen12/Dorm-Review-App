@@ -17,7 +17,7 @@ in case they forgot to favorite it or just want to go back to view it again. Add
 upvote or like a review, whether it is a student who found it helpful or a past resident that agrees and wants to 
 validate it.
 
-## The student looking for a room
+## Student looking for a room
 The student will be able to choose what house, what floor, and what type of room they are looking for to help in there
 search for a room to choose in the draw.
 - choose house and other preferences
