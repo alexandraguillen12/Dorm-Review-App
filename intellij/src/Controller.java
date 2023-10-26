@@ -23,30 +23,53 @@ public class Controller {
 
         House name;
 
-        System.out.println("Dorm Review app: Search for a room");
-        System.out.println(" _Use case is specified using only House case.");
-        System.out.println(" List of the houses are: Main, Strong, Raymond, Davidson, Lathrop, Jewett, Josselyn, Cushing, Noyes," +
-                "If you want to search all the rooms write ALL, if you want to stop searching press EXIT," +
-                "If there's no matching for the house print NO RESULTS, ")
+        System.out.println("Dorm Review app: Search for a room\n");
+        System.out.println("Although, ultimately, we will have four filters, one for each: house, floor, room type, and availability, for now, we will just be using the house filter.\n");
+        System.out.println(" List of the houses are: Main, Strong, Raymond, Davison, Lathrop, Jewett, Josselyn, Cushing, Noyes\n" +
+                "-If you want to search all the rooms, enter ALL.\n-If you want to stop searching, enter EXIT.\n" +
+                "-If there is no match for the house you entered, it will print NO RESULTS.\n ");
 
-        System.out.println("Enter house: ");
-        String input = scanner.nextLine();
-        name = House.valueOf(input.toUpperCase());
+        while(true) {
+            System.out.println("Enter house: ");
+            String input = scanner.nextLine();
+            input = input.toUpperCase();
+            /*
+                if (!input.equals("MAIN") && !input.equals("STRONG") && !input.equals("RAYMOND") && !input.equals("DAVISON")
+                        && !input.equals("LATHROP") && !input.equals("JEWETT") && !input.equals("JOSSELYN")
+                        && !input.equals("CUSHING") && !input.equals("NOYES") && !input.equals("ALL")
+                        && !input.equals("EXIT")) {
+                    System.out.println("Invalid input. Only listed ones supported.");
+                } else continue;
+            */
+            if (input.equals("EXIT")) {
+                break;
+            }
 
-        //public void search_by_HouseName(House name){
+            if (input.equals("ALL")) {
+                System.out.println(exRoomLib.toString());
+                continue;
+            }
+
+            try {
+                name = House.valueOf(input);
+            } catch(IllegalArgumentException e) {
+                System.out.println("Invalid input. Only listed ones supported.");
+                continue;
+            }
+            //public void search_by_HouseName(House name){
             HouseFilter houseFilter = new HouseFilter(name);
-        //};
+            //};
 
-        Set<Room> roomSet = new HashSet<>(exRooms);
+            Set<Room> roomSet = new HashSet<>(exRooms);
 
-        Set<Room> f1 = houseFilter.filter(roomSet);
+            Set<Room> f1 = houseFilter.filter(roomSet);
 
-        Set<Filter> filterSet = new HashSet<>();
-        filterSet.add(houseFilter);
-        Set<Room> roomList = exRoomLib.Search(roomSet, filterSet);
+            Set<Filter> filterSet = new HashSet<>();
+            filterSet.add(houseFilter);
+            Set<Room> roomList = exRoomLib.Search(roomSet, filterSet);
 
 
-        System.out.println(roomList.toString());
-        //System.out.println(exRoomLib.toString());
+            System.out.println(roomList.toString());
+        }
     }
 }
