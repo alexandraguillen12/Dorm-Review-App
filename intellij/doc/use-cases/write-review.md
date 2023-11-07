@@ -35,7 +35,6 @@ title Write review (brief level)
 
 'define the lanes
 |#application|Past Resident|
-''|#technology|Past Residents|
 |#implementation|App System|
 
 
