@@ -7,7 +7,8 @@ public interface User {
     }
 }
 
-public Search_caritiria(){
+/*
+public Search_criteria(){
     MyValue = 0;
 }
 public static void main(String[] args) {
@@ -18,4 +19,4 @@ public static void main(String[] args) {
         System.out.println("obj1 myValue: " + obj1.getMyValue());  // Output: obj1 myValue: 0
         System.out.println("obj2 myValue: " + obj2.getMyValue());  // Output: obj2 myValue: 5
     }
-
+*/

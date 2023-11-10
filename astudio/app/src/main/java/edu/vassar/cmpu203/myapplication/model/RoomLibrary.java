@@ -1,3 +1,5 @@
+package edu.vassar.cmpu203.myapplication.model;
+
 import java.util.ArrayList;
 import java.util.Set;
 
