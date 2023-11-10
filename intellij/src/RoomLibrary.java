@@ -4,7 +4,6 @@ import java.util.Set;
 public class RoomLibrary {
     public ArrayList<Room> rooms = new ArrayList<>();
 
-
     public int size = 5;
     //just for this example
 
