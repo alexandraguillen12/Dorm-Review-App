@@ -2,7 +2,7 @@ package edu.vassar.cmpu203.myapplication.model;
 
 import java.util.*;
 
-public class HouseFilter implements Filter{
+public class HouseFilter implements Filter {
 
     House name;
 

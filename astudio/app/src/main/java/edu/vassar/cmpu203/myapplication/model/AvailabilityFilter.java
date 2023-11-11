@@ -7,7 +7,7 @@ public class AvailabilityFilter {
     boolean availability;
 
 
-    public AvailabilityFilter(RoomType type){
+    public AvailabilityFilter(boolean availability){
         this.availability = availability;
     }
     /*
