@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class RoomLibrary {
-    public ArrayList<Room> rooms = new ArrayList<>();
+    public ArrayList<Room> rooms;
 
 
-    public int size = 5;
-    //just for this example
+    public int size = 0;
 
-    public RoomLibrary(ArrayList<Room> rooms){
-        this.rooms = rooms;
+    public RoomLibrary(){
+        this.rooms = new ArrayList<>();
     }
 
-    public void addRoom(Room room){
-
+    public void addRoom(House name, int floor, RoomType rt, boolean availability){
+        Room r = new Room(name, floor, rt, availability);
+        this.rooms.add(r);
         this.size ++;
     }
 
@@ -30,9 +30,11 @@ public class RoomLibrary {
         return rl;
     }
 
+    /*
     public Set<Room> Search(Set<Room> roomList, Set<Filter> filters){
         for (Filter f : filters) roomList = f.filter(roomList);
         return roomList;
     }
+     */
 
 }
