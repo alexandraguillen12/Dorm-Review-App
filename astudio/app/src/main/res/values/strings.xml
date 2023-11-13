@@ -3,7 +3,9 @@
 
     <string name="main_view_msg">Dorm Review</string>
     <string name="search_msg_fragment">Search for room</string>
+    <string name="searchButton">Search</string>
 
+    <!-- for search screen -->
     <string-array name="houseSpinner_entries">
         <item>Main</item>
         <item>Strong</item>
@@ -42,4 +44,12 @@
         <item>Available rooms</item>
         <item>All rooms</item>
     </string-array>
+
+    <!-- for room selection screen -->
+    <string name="room_id">Room ID</string>
+    <string name="house">House Name</string>
+    <string name="floor">Floor #</string>
+    <string name="room_type">Room Type</string>
+    <string name="availability">Available?</string>
+
 </resources>

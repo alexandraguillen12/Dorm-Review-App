@@ -25,7 +25,7 @@ public interface ISearchView {
         /**
          * Called when the user is done adding filters.
          */
-        void onItemsDone();
+        void onSearchDone();
 
     }
 

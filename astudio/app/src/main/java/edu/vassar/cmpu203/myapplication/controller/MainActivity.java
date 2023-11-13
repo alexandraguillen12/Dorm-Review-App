@@ -43,14 +43,14 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
 
     @Override
     public void onAddedFilters(House name, int floor, RoomType rt, boolean availability, ISearchView view) {
-        this.curSearch.addFilters(name, floor,rt, availability);
+        this.curSearch.addFilters(name, floor, rt, availability);
     }
 
     /**
      * Called when the user is done adding filters.
      */
     @Override
-    public void onItemsDone() {
+    public void onSearchDone() {
         List<Room> curResults = this.curSearch.getResults();
         Fragment rsfrag = new RoomSelectionFragment(curResults, this);
         this.mainView.displayFragment(rsfrag, false, "room selection");
@@ -58,18 +58,12 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
 
     @Override
     public void onSelectionDone() {
-        // go back to ledger when done with payment
         this.mainView.displayFragment(new RoomProfileFragment(this), false, "view room");
     }
-    /* ICashPayment.Listener interface implementation end */
 
-    /* ILedgerView.Listener interface implementation start */
-    /**
-     * Called when the user indicates the desire to start a new sale.
-     */
+
     @Override
     public void onNewSearch() {
-        // initiate a new sale
         this.curSearch = new Search();
         this.mainView.displayFragment(new SearchFragment(this), true, "search");
     }

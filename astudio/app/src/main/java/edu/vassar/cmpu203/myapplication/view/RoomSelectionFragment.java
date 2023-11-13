@@ -3,7 +3,10 @@ package edu.vassar.cmpu203.myapplication.view;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import edu.vassar.cmpu203.myapplication.model.Room;
 import android.view.LayoutInflater;
@@ -41,6 +44,29 @@ public class RoomSelectionFragment extends Fragment implements IRoomSelectionVie
         return this.binding.getRoot();
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.fragment_room_selection);
+
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerView.setAdapter(new MyAdapter(getContext().getApplicationContext(), curResults));
+    }
+
+    /*@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.fragment_room_selection);
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new MyAdapter(getContext().getApplicationContext(),curResults));
+    }
+
+     */
 
 
 }

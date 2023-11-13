@@ -10,11 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
 
 import edu.vassar.cmpu203.myapplication.R;
 import edu.vassar.cmpu203.myapplication.databinding.FragmentSearchBinding;
+import edu.vassar.cmpu203.myapplication.model.House;
+import edu.vassar.cmpu203.myapplication.model.RoomType;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +63,25 @@ public class SearchFragment extends Fragment implements ISearchView{
             @Override
             public void onClick(View v) {
                 //next fragment?
+                Spinner houseSpinner = v.findViewById(R.id.houseSpinner);
+                String houseStr = houseSpinner.getSelectedItem().toString();
+
+                Spinner floorSpinner = v.findViewById(R.id.floorSpinner);
+                String floorStr = floorSpinner.getSelectedItem().toString();
+
+                Spinner rtSpinner = v.findViewById(R.id.roomTypeSpinner);
+                String rtStr = rtSpinner.getSelectedItem().toString();
+
+                Spinner availSpinner = v.findViewById(R.id.availabilitySpinner);
+                String availStr = availSpinner.getSelectedItem().toString();
+
+                House name = House.valueOf(houseStr);
+                int floor = Integer.parseInt(floorStr);
+                RoomType rt = RoomType.valueOf(rtStr);
+                boolean avail = true;
+
+                SearchFragment.this.listener.onAddedFilters(name, floor, rt, avail, SearchFragment.this);
+                SearchFragment.this.listener.onSearchDone();
             }
         });
     }

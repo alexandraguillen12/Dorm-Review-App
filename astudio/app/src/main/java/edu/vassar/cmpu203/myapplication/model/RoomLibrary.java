@@ -15,7 +15,18 @@ public class RoomLibrary {
     }
 
     Room[] roomList = new Room[] {
-            new Room(House.JEWETT,3, RoomType.SINGLE, true)};
+            new Room(House.MAIN,3, RoomType.SINGLE, true),
+            new Room(House.STRONG,4, RoomType.SINGLE, true),
+            new Room(House.RAYMOND,2, RoomType.SINGLE, true),
+            new Room(House.DAVISON,5, RoomType.DOUBLE, true),
+            new Room(House.LATHROP,3, RoomType.DOUBLE, true),
+            new Room(House.JEWETT,7, RoomType.TRIPLE, true),
+            new Room(House.JOSSELYN,1, RoomType.SUITE, true),
+            new Room(House.CUSHING,2, RoomType.TWO_ROOM_DOUBLE, true),
+            new Room(House.NOYES,3, RoomType.TWO_ROOM_TRIPLE, true),
+            new Room(House.JEWETT,9, RoomType.QUAD, true),
+            new Room(House.JEWETT,8, RoomType.SINGLE, true),
+            new Room(House.JEWETT,6, RoomType.SINGLE, true)};
 
 
     public void addRoom(House name, int floor, RoomType rt, boolean availability){

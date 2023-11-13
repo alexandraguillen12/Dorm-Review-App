@@ -1,6 +1,5 @@
 package edu.vassar.cmpu203.myapplication.model;
 import java.util.*;
-import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +9,7 @@ public class Search {
 
     private List<Room> results;
     Set<Filter> filterSet = new HashSet<>();
+    RoomLibrary roomLib = new RoomLibrary();
 
 
 
@@ -30,18 +30,17 @@ public class Search {
 
 
 
-    Set<Room> roomSet = new HashSet<>();
-
     public Set<Room> filter(Set<Room> roomList, Set<Filter> filters) {
         for (Filter f : filters) roomList = f.filter(roomList);
         return roomList;
     }
 
 
-    //this.filterSet.add(houseFilter);
 
+    Set roomSet = new HashSet(roomLib.getRoomLibrary());
 
-
-    //results = roomLib.filter(roomSet, filterSet);
-    public List<Room> getResults(){ return this.results; }
+    public List<Room> getResults(){
+        //this.results = new ArrayList<>(filter(roomSet,filterSet));
+        this.results = (List<Room>) filter(roomSet, filterSet);
+        return this.results; }
 }
