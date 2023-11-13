@@ -14,44 +14,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/hello_blank_fragment"
+        android:text="@string/search_msg_fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/houseSpinner"
         android:layout_width="250dp"
         android:layout_height="50dp"
+        android:entries="@array/houseSpinner_entries"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/floorSpinner"
         android:layout_width="250dp"
         android:layout_height="50dp"
+        android:entries="@array/floorSpinner_entries"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/houseSpinner" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/roomTypeSpinner"
         android:layout_width="250dp"
         android:layout_height="50dp"
+        android:entries="@array/roomTypeSpinner_entries"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintTop_toBottomOf="@+id/floorSpinner" />
 
     <Spinner
-        android:id="@+id/spinner4"
+        android:id="@+id/availabilitySpinner"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:entries="@array/spinner_entries"
+        android:entries="@array/availabilitySpinner_entries"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+        app:layout_constraintTop_toBottomOf="@+id/roomTypeSpinner" />
 
     <Button
         android:id="@+id/searchButton"
@@ -61,6 +64,6 @@
         android:text="@android:string/VideoView_error_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner4" />
+        app:layout_constraintTop_toBottomOf="@+id/availabilitySpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,7 @@ package edu.vassar.cmpu203.myapplication.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class AvailabilityFilter {
+public class AvailabilityFilter implements Filter {
     boolean availability;
 
 

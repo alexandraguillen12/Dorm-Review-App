@@ -1,9 +1,44 @@
 <resources>
     <string name="app_name">My Application</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string-array name="spinner_entries">
+    <string name="main_view_msg">Dorm Review</string>
+    <string name="search_msg_fragment">Search for room</string>
+
+    <string-array name="houseSpinner_entries">
+        <item>Main</item>
+        <item>Strong</item>
+        <item>Raymond</item>
+        <item>Davison</item>
+        <item>Lathrop</item>
+        <item>Jewett</item>
+        <item>Josselyn</item>
+        <item>Cushing</item>
+        <item>Noyes</item>
+    </string-array>
+
+    <string-array name="floorSpinner_entries">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="roomTypeSpinner_entries">
+        <item>Single</item>
+        <item>Double</item>
+        <item>Triple</item>
+        <item>Quad</item>
+        <item>Suite</item>
+        <item>Two Room Double</item>
+        <item>Two Room Triple</item>
+    </string-array>
+
+    <string-array name="availabilitySpinner_entries">
         <item>Available rooms</item>
         <item>All rooms</item>
     </string-array>

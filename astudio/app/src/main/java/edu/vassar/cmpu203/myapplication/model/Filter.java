@@ -1,14 +1,10 @@
 package edu.vassar.cmpu203.myapplication.model;
 
 import java.util.Set;
+import java.util.*;
 
 public interface Filter {
 
-
     Set<Room> filter(Set<Room> roomList);
 
-    /*public Set<Room> filter(Set<Room> roomList, Set<Filter> filters); {
-        for (Filter f : filters) roomList = f.filter(roomList);
-        return roomList;
-    }*/
 }
