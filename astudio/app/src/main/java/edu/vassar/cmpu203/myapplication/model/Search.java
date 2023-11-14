@@ -30,17 +30,17 @@ public class Search {
 
 
 
-    public Set<Room> filter(Set<Room> roomList, Set<Filter> filters) {
+    public ArrayList<Room> filter(ArrayList<Room> roomList, Set<Filter> filters) {
         for (Filter f : filters) roomList = f.filter(roomList);
         return roomList;
     }
 
 
 
-    Set roomSet = new HashSet(roomLib.getRoomLibrary());
+    ArrayList<Room> roomArrayList = roomLib.getRoomLibrary();
 
     public List<Room> getResults(){
         //this.results = new ArrayList<>(filter(roomSet,filterSet));
-        this.results = (List<Room>) filter(roomSet, filterSet);
+        this.results = (List<Room>) filter(roomArrayList, filterSet);
         return this.results; }
 }

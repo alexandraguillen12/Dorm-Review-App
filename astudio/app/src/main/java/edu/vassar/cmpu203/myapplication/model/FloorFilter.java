@@ -2,6 +2,8 @@ package edu.vassar.cmpu203.myapplication.model;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.List;
+import java.util.ArrayList;
 
 public class FloorFilter implements Filter {
     int floor;
@@ -14,8 +16,8 @@ public class FloorFilter implements Filter {
     public void add
     */
 
-    public Set<Room> filter(Set<Room> roomList){
-        Set<Room> filteredList = new HashSet<Room>();
+    public ArrayList<Room> filter(ArrayList<Room> roomList){
+        ArrayList<Room> filteredList = new ArrayList<Room>();
         for (Room r : roomList) {
             if (this.floor == r.getFloor()) {
                 filteredList.add(r);

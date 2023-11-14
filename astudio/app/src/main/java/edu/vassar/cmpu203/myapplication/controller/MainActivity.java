@@ -26,7 +26,7 @@ import edu.vassar.cmpu203.myapplication.view.SearchFragment;
 public class MainActivity extends AppCompatActivity implements ISearchView.Listener,
         IRoomSelectionView.Listener, IRoomProfileView.Listener {
 
-    Search curSearch;
+    Search curSearch = new Search();
     IMainView mainView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

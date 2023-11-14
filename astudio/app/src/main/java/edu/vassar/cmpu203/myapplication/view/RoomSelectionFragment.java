@@ -49,10 +49,15 @@ public class RoomSelectionFragment extends Fragment implements IRoomSelectionVie
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.fragment_room_selection);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        /*RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.setAdapter(new MyAdapter(getContext().getApplicationContext(), curResults));
+
+         */
+        this.binding.recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        this.binding.recyclerView.setAdapter(new MyAdapter(getContext().getApplicationContext(), curResults));
     }
 
     /*@Override

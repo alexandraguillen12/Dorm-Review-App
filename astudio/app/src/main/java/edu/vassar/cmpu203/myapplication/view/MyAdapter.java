@@ -28,8 +28,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.houseView.setText(rooms.get(position).getHouse().toString());
-        holder.floorView.setText(rooms.get(position).getFloor());
+        String roomIdStr = "Room " + position;
+        holder.roomIdView.setText(roomIdStr);
+        String houseStrDisplay = rooms.get(position).getHouse().toString() + " House";
+        holder.houseView.setText(houseStrDisplay);
+        String floorStrDisplay = "floor" + rooms.get(position).getFloor();
+        holder.floorView.setText(floorStrDisplay);
         holder.rtView.setText(rooms.get(position).getRoomType().toString());
         if (rooms.get(position).getAvailability()) { holder.availView.setText("Available");}
         else { holder.availView.setText("Not Available");}

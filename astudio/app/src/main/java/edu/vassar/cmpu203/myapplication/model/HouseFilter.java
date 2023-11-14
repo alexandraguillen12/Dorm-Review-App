@@ -14,8 +14,8 @@ public class HouseFilter implements Filter {
     public void add
     */
 
-    public Set<Room> filter(Set<Room> roomList){
-        Set<Room> filteredList = new HashSet<Room>();
+    public ArrayList<Room> filter(ArrayList<Room> roomList){
+        ArrayList<Room> filteredList = new ArrayList<Room>();
         for (Room r : roomList) {
             if (this.name == r.getHouse()) {
                 filteredList.add(r);
