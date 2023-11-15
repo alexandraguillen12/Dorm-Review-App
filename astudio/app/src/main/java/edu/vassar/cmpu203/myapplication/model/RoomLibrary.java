@@ -24,7 +24,14 @@ public class RoomLibrary {
             new Room(House.NOYES,3, RoomType.TWO_ROOM_TRIPLE, true),
             new Room(House.JEWETT,9, RoomType.QUAD, true),
             new Room(House.JEWETT,8, RoomType.SINGLE, true),
-            new Room(House.JEWETT,6, RoomType.SINGLE, true)};
+            new Room(House.JEWETT,6, RoomType.SINGLE, true),
+            new Room(House.JEWETT,8, RoomType.SINGLE, true),
+            new Room(House.JEWETT,8, RoomType.SINGLE, true),
+            new Room(House.JEWETT,8, RoomType.SINGLE, true),
+            new Room(House.JEWETT,8, RoomType.SINGLE, true),
+            new Room(House.JEWETT,8, RoomType.SINGLE, true),
+            new Room(House.JEWETT,8, RoomType.SINGLE, true),
+            new Room(House.JEWETT,8, RoomType.SINGLE, true)};
 
 
     public void addRoom(House name, int floor, RoomType rt, boolean availability){

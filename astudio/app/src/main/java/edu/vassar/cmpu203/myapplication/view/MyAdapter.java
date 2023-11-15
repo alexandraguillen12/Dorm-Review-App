@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import java.util.List;
+import java.util.Locale;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,13 +30,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        String roomIdStr = "Room " + position;
+        String roomIdStr = "Room " + (position + 1);
         holder.roomIdView.setText(roomIdStr);
-        String houseStrDisplay = rooms.get(position).getHouse().toString() + " House";
+        String houseStrDisplay = rooms.get(position).getHouse().toString();
+        houseStrDisplay = houseStrDisplay.substring(0,1) + houseStrDisplay.substring(1).toLowerCase() + " House";
         holder.houseView.setText(houseStrDisplay);
-        String floorStrDisplay = "floor" + rooms.get(position).getFloor();
+        String floorStrDisplay = "Floor " + rooms.get(position).getFloor();
         holder.floorView.setText(floorStrDisplay);
-        holder.rtView.setText(rooms.get(position).getRoomType().toString());
+        String rtStrDisplay = rooms.get(position).getRoomType().toString();
+        rtStrDisplay = rtStrDisplay.substring(0,1) + rtStrDisplay.substring(1).toLowerCase();
+        holder.rtView.setText(rtStrDisplay);
         if (rooms.get(position).getAvailability()) { holder.availView.setText("Available");}
         else { holder.availView.setText("Not Available");}
         //holder.imageView.setImageResource(rooms.get(position).getImage());
