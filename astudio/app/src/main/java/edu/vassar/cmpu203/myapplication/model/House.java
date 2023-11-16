@@ -9,5 +9,6 @@ public enum House {
     JEWETT,
     JOSSELYN,
     CUSHING,
-    NOYES
+    NOYES,
+    ALL_HOUSES
 }

@@ -22,16 +22,17 @@ public class Search {
         FloorFilter floorFilter = new FloorFilter(floor);
         RoomTypeFilter roomTypeFilter = new RoomTypeFilter(type);
         AvailabilityFilter availabilityFilter = new AvailabilityFilter(availability);
-        this.filterSet.add(houseFilter);
-        this.filterSet.add(floorFilter);
-        this.filterSet.add(roomTypeFilter);
-        this.filterSet.add(availabilityFilter);
+        if (name != House.ALL_HOUSES) {this.filterSet.add(houseFilter);}
+        if (floor != 0) {this.filterSet.add(floorFilter);}
+        if (type != RoomType.ALL_ROOM_TYPES) {this.filterSet.add(roomTypeFilter);}
+        if (availability) {this.filterSet.add(availabilityFilter);}
     }
 
 
 
     public ArrayList<Room> filter(ArrayList<Room> roomList, Set<Filter> filters) {
-        for (Filter f : filters) roomList = f.filter(roomList);
+        if (!filters.isEmpty()){
+            for (Filter f : filters) roomList = f.filter(roomList);}
         return roomList;
     }
 

@@ -7,5 +7,6 @@ public enum RoomType {
     QUAD,
     SUITE,
     TWO_ROOM_DOUBLE,
-    TWO_ROOM_TRIPLE
+    TWO_ROOM_TRIPLE,
+    ALL_ROOM_TYPES
 }

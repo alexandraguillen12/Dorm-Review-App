@@ -107,14 +107,17 @@ public class SearchFragment extends Fragment implements ISearchView{
                 //next fragment?
                 String houseStr = SearchFragment.this.binding.houseSpinner.getSelectedItem().toString();
                 houseStr = houseStr.toUpperCase();
-                name = House.valueOf(houseStr);
+                if (houseStr.equals("ALL HOUSES")) {name = House.ALL_HOUSES;}
+                else {name = House.valueOf(houseStr);}
                 String floorStr = SearchFragment.this.binding.floorSpinner.getSelectedItem().toString();
-                floor = Integer.parseInt(floorStr);
+                if (floorStr.equals("All Floors")) {floor = 0;}
+                else {floor = Integer.parseInt(floorStr);}
                 String rtStr = SearchFragment.this.binding.roomTypeSpinner.getSelectedItem().toString();
                 rtStr = rtStr.toUpperCase();
-                rt = RoomType.valueOf(rtStr);
+                if (rtStr.equals("ALL ROOM TYPES")) {rt = RoomType.ALL_ROOM_TYPES;}
+                else {rt = RoomType.valueOf(rtStr);}
                 String availStr = SearchFragment.this.binding.availabilitySpinner.getSelectedItem().toString();
-                avail = true;
+                avail = availStr.equals("Available rooms");
 
                 SearchFragment.this.listener.onAddedFilters(name, floor, rt, avail, SearchFragment.this);
                 SearchFragment.this.listener.onSearchDone();

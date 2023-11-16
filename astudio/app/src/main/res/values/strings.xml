@@ -7,6 +7,7 @@
 
     <!-- for search screen -->
     <string-array name="houseSpinner_entries">
+        <item>All Houses</item>
         <item>Main</item>
         <item>Strong</item>
         <item>Raymond</item>
@@ -19,6 +20,7 @@
     </string-array>
 
     <string-array name="floorSpinner_entries">
+        <item>All Floors</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -31,6 +33,7 @@
     </string-array>
 
     <string-array name="roomTypeSpinner_entries">
+        <item>All Room Types</item>
         <item>Single</item>
         <item>Double</item>
         <item>Triple</item>
