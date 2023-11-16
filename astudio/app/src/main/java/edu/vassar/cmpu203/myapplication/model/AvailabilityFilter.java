@@ -11,9 +11,6 @@ public class AvailabilityFilter implements Filter {
     public AvailabilityFilter(boolean availability){
         this.availability = availability;
     }
-    /*
-    public void add
-    */
 
     public ArrayList<Room> filter(ArrayList<Room> roomList){
         ArrayList<Room> filteredList = new ArrayList<Room>();
