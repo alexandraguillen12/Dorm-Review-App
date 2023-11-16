@@ -13,18 +13,20 @@ import edu.vassar.cmpu203.myapplication.model.Room;
 import edu.vassar.cmpu203.myapplication.model.House;
 import edu.vassar.cmpu203.myapplication.model.RoomType;
 import edu.vassar.cmpu203.myapplication.model.Search;
+import edu.vassar.cmpu203.myapplication.view.INoResultsView;
 import edu.vassar.cmpu203.myapplication.view.IRoomProfileView;
 import edu.vassar.cmpu203.myapplication.view.IRoomSelectionView;
 import edu.vassar.cmpu203.myapplication.view.ISearchView;
 import edu.vassar.cmpu203.myapplication.view.IMainView;
 import edu.vassar.cmpu203.myapplication.view.MainView;
+import edu.vassar.cmpu203.myapplication.view.NoResultsFragment;
 import edu.vassar.cmpu203.myapplication.view.RoomProfileFragment;
 import edu.vassar.cmpu203.myapplication.view.RoomSelectionFragment;
 import edu.vassar.cmpu203.myapplication.view.SearchFragment;
 
 
 public class MainActivity extends AppCompatActivity implements ISearchView.Listener,
-        IRoomSelectionView.Listener, IRoomProfileView.Listener {
+        IRoomSelectionView.Listener, IRoomProfileView.Listener, INoResultsView.Listener {
 
     Search curSearch = new Search();
     IMainView mainView;
@@ -53,7 +55,9 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
     public void onSearchDone() {
         List<Room> curResults = this.curSearch.getResults();
         Fragment rsfrag = new RoomSelectionFragment(curResults, this);
-        this.mainView.displayFragment(rsfrag, false, "room selection");
+        Fragment nrfrag = new NoResultsFragment(this);
+        if (curResults.isEmpty()) {this.mainView.displayFragment(nrfrag, false, "no results");}
+        else {this.mainView.displayFragment(rsfrag, false, "room selection");}
     }
 
     @Override

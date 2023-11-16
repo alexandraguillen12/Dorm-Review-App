@@ -47,17 +47,25 @@ public class RoomSelectionFragment extends Fragment implements IRoomSelectionVie
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.fragment_room_selection);
 
-        /*RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        recyclerView.setAdapter(new MyAdapter(getContext().getApplicationContext(), curResults));
-
-         */
         this.binding.recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         this.binding.recyclerView.setAdapter(new MyAdapter(getContext().getApplicationContext(), curResults));
+
+        /*this.binding.recyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RoomSelectionFragment.this.listener.onSelectionDone();
+            }
+        });
+
+         */
+
+        this.binding.newSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RoomSelectionFragment.this.listener.onNewSearch();
+            }
+        });
     }
 
     /*@Override
