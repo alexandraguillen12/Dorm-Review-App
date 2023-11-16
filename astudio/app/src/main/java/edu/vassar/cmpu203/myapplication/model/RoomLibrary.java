@@ -30,11 +30,5 @@ public class RoomLibrary {
         return rl;
     }
 
-    /*
-    public Set<Room> Search(Set<Room> roomList, Set<Filter> filters){
-        for (Filter f : filters) roomList = f.filter(roomList);
-        return roomList;
-    }
-     */
 
 }
