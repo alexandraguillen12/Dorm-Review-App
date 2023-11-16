@@ -16,12 +16,20 @@ import edu.vassar.cmpu203.myapplication.view.MyViewHolder;
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     Context context;
     List<Room> rooms;
+    private onItemClickListener onItemClickListener;
 
     public MyAdapter(Context context, List<Room> rooms) {
         this.context = context;
         this.rooms = rooms;
     }
 
+    public interface onItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(onItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -43,7 +51,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         if (rooms.get(position).getAvailability()) { holder.availView.setText("Available");}
         else { holder.availView.setText("Not Available");}
         //holder.imageView.setImageResource(rooms.get(position).getImage());
+
+        holder.itemView.setOnClickListener(view -> {
+            if (onItemClickListener !=null) {
+                onItemClickListener.onItemClick(position);
+            }
+        });
     }
+
+
 
     @Override
     public int getItemCount() {

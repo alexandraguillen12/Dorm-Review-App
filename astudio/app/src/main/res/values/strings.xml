@@ -60,4 +60,8 @@
     <string name="no_results">No results</string>
     <string name="back">Back</string>
 
+    <!-- for room profile screen -->
+    <string name="back2">Back</string>
+    <string name="room_id_text">id</string>
+
 </resources>

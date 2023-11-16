@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import java.util.List;
 
@@ -61,8 +62,9 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
     }
 
     @Override
-    public void onSelectionDone() {
-        this.mainView.displayFragment(new RoomProfileFragment(this), false, "view room");
+    public void onSelectionDone(int position) {
+        //Log.d("onSelectionDone", "called");
+        this.mainView.displayFragment(new RoomProfileFragment(this, position), false, "view room");
     }
 
 

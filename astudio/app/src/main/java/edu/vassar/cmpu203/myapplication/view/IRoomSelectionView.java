@@ -4,7 +4,7 @@ public interface IRoomSelectionView {
 
     interface Listener{
 
-        void onSelectionDone();
+        void onSelectionDone(int position);
 
         void onNewSearch();
     }

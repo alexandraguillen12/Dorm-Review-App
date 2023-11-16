@@ -52,54 +52,6 @@ public class SearchFragment extends Fragment implements ISearchView{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        /*this.binding.houseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                 String houseStr = getSelectedItem().toString();
-                 name = House.valueOf(houseStr);
-             }
-
-             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
-        });
-
-        this.binding.floorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String floorStr = floorSpinner.getSelectedItem().toString();
-                floor = Integer.parseInt(floorStr);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
-        });
-
-        this.binding.roomTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String rtStr = rtSpinner.getSelectedItem().toString();
-                rt = RoomType.valueOf(rtStr);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
-        });
-
-        this.binding.availabilitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String availStr = availSpinner.getSelectedItem().toString();
-                avail = true;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
-        });
-
-         */
-
-
-
         this.binding.searchButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

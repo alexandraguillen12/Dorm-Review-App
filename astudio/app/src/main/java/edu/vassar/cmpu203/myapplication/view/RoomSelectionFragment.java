@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import edu.vassar.cmpu203.myapplication.model.Room;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,16 +51,13 @@ public class RoomSelectionFragment extends Fragment implements IRoomSelectionVie
         super.onCreate(savedInstanceState);
 
         this.binding.recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        this.binding.recyclerView.setAdapter(new MyAdapter(getContext().getApplicationContext(), curResults));
+        MyAdapter adapter = new MyAdapter(getContext().getApplicationContext(), curResults);
+        this.binding.recyclerView.setAdapter(adapter);
 
-        /*this.binding.recyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                RoomSelectionFragment.this.listener.onSelectionDone();
-            }
+        adapter.setOnItemClickListener(position -> {
+            RoomSelectionFragment.this.listener.onSelectionDone(position);
         });
 
-         */
 
         this.binding.newSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
