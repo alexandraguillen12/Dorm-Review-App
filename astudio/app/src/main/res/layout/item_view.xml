@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:background="?android:selectableItemBackground">
+
+    <TextView
+        android:id="@+id/room_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:text="@string/room_id"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/houseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/room_id"
+        android:layout_alignStart="@id/room_id"
+        android:text="@string/house"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/floorNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/houseName"
+        android:layout_alignStart="@id/room_id"
+        android:textColor="@color/black"
+        android:text="@string/floor" />
+
+    <TextView
+        android:id="@+id/roomType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/floorNum"
+        android:layout_alignStart="@id/room_id"
+        android:textColor="@color/black"
+        android:text="@string/room_type" />
+
+    <TextView
+        android:id="@+id/availability"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/roomType"
+        android:layout_alignStart="@id/room_id"
+        android:textColor="@color/black"
+        android:text="@string/availability" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="#DAD8D8" />
+</RelativeLayout>

@@ -2,8 +2,9 @@ package edu.vassar.cmpu203.myapplication.model;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.ArrayList;
 
-public class AvailabilityFilter {
+public class AvailabilityFilter implements Filter {
     boolean availability;
 
 
@@ -14,8 +15,8 @@ public class AvailabilityFilter {
     public void add
     */
 
-    public Set<Room> filter(Set<Room> roomList){
-        Set<Room> filteredList = new HashSet<Room>();
+    public ArrayList<Room> filter(ArrayList<Room> roomList){
+        ArrayList<Room> filteredList = new ArrayList<Room>();
         for (Room r : roomList) {
             if (this.availability == r.getAvailability()) {
                 filteredList.add(r);

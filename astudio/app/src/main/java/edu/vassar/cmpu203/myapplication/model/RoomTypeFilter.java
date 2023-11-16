@@ -2,6 +2,8 @@ package edu.vassar.cmpu203.myapplication.model;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoomTypeFilter implements Filter{
     RoomType type;
@@ -14,8 +16,8 @@ public class RoomTypeFilter implements Filter{
     public void add
     */
 
-    public Set<Room> filter(Set<Room> roomList){
-        Set<Room> filteredList = new HashSet<Room>();
+    public ArrayList<Room> filter(ArrayList<Room> roomList){
+        ArrayList<Room> filteredList = new ArrayList<Room>();
         for (Room r : roomList) {
             if (this.type == r.getRoomType()) {
                 filteredList.add(r);
