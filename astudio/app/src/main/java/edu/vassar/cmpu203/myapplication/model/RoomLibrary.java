@@ -1,10 +1,12 @@
 package edu.vassar.cmpu203.myapplication.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Set;
 
 public class RoomLibrary {
     public ArrayList<Room> rooms;
+    //public int ArrayLIst<Room> rooms;
 
 
     public int size = 0;
@@ -18,7 +20,6 @@ public class RoomLibrary {
         this.rooms.add(r);
         this.size ++;
     }
-
 
     public String toString(){
         int i = 1;
