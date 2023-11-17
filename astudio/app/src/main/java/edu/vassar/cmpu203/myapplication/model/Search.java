@@ -28,6 +28,7 @@ public class Search {
         if (availability) {this.filterSet.add(availabilityFilter);}
     }
 
+    public int getFilterCount(){ return this.filterSet.size();}
 
 
     public ArrayList<Room> filter(ArrayList<Room> roomList, Set<Filter> filters) {
