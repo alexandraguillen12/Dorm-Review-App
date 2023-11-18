@@ -6,46 +6,47 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 import edu.vassar.cmpu203.myapplication.R;
-//import com.bumptech.glide.Glide;
 
-public class PhotoPagerAdapter extends PagerAdapter {
+public class PhotoPagerAdapter extends RecyclerView.Adapter<PhotoPagerAdapter.PhotoViewHolder> {
 
     private Context context;
-    private String[] imageUrls; // Replace with your image URLs or resource IDs
+    private int[] imageResourceIds;
 
-    public PhotoPagerAdapter(Context context, String[] imageUrls) {
+    public PhotoPagerAdapter(Context context, int[] imageResourceIds) {
         this.context = context;
-        this.imageUrls = imageUrls;
-    }
-
-    @Override
-    public int getCount() {
-        return imageUrls.length;
+        this.imageResourceIds = imageResourceIds;
     }
 
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.carousel_item, container, false);
-
-        ImageView imageView = view.findViewById(R.id.imageView);
-        // Use a library like Glide to load images efficiently
-        //Glide.with(context).load(imageUrls[position]).into(imageView);
-
-        container.addView(view);
-        return view;
+    public PhotoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.carousel_item, parent, false);
+        return new PhotoViewHolder(view);
     }
 
     @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((View) object);
+    public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {
+        holder.bind(position);
     }
 
     @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == object;
+    public int getItemCount() {
+        return imageResourceIds.length;
+    }
+
+    class PhotoViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+
+        PhotoViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imageView = itemView.findViewById(R.id.imageView);
+        }
+
+        void bind(int position) {
+            // Set image resource based on position
+            imageView.setImageResource(imageResourceIds[position]);
+        }
     }
 }

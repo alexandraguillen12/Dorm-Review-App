@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
@@ -27,7 +28,7 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
     Listener listener;
     int position;
 
-    private ViewPager2 viewPager;
+    //private ViewPager2 viewPager2;
     private PhotoPagerAdapter pagerAdapter;
     private ImageButton btnPrevious;
     private ImageButton btnNext;
@@ -54,10 +55,32 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
         String str = "Room " + (position + 1);
         this.binding.roomIdText.setText(str);
 
-        String[] imageUrls = {};
+        int[] imageResourceIds = {
+                R.drawable.dorm1,
+                R.drawable.dorm2
+        };
 
-        //pagerAdapter = new PhotoPagerAdapter(this, imageUrls);
-        //this.binding.viewPager.setAdapter(pagerAdapter);
+        pagerAdapter = new PhotoPagerAdapter(requireContext(), imageResourceIds);
+        this.binding.viewPager2.setAdapter(pagerAdapter);
+
+        this.binding.btnPrevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentImage = (RoomProfileFragment.this.binding.viewPager2.getCurrentItem());
+                    if (currentImage > 0) {
+                        RoomProfileFragment.this.binding.viewPager2.setCurrentItem(currentImage - 1);
+                    }
+                }
+        });
+        this.binding.btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentImage = (RoomProfileFragment.this.binding.viewPager2.getCurrentItem());
+                if (currentImage < pagerAdapter.getItemCount() - 1) {
+                    RoomProfileFragment.this.binding.viewPager2.setCurrentItem(currentImage + 1);
+                }
+            }
+        });
 
         this.binding.back2Button.setOnClickListener(new View.OnClickListener() {
             @Override
