@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
     @Override
     public void onSelectionDone(int position) {
         //Log.d("onSelectionDone", "called");
-        this.mainView.displayFragment(new RoomProfileFragment(this, position), false, "view room");
+        this.mainView.displayFragment(new RoomProfileFragment(this, position, curSearch.getResults().get(position)), false, "view room");
     }
 
 

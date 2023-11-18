@@ -40,7 +40,10 @@ public class Room {
     }
 
     public String toString(){
-        return String.format("Room (%s, %d, %s, %s)", this.House, this.Floor, this.RoomType, this.Availability);
+        String str = String.format("%s, %d, %s, ", this.House, this.Floor, this.RoomType);
+        if (this.Availability) {str += "available";}
+        else {str += "not available";}
+        return str;
     };
 
 }

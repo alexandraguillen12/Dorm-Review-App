@@ -63,5 +63,6 @@
     <!-- for room profile screen -->
     <string name="back2">Back</string>
     <string name="room_id_text">id</string>
+    <string name="description">description_test_def</string>
 
 </resources>

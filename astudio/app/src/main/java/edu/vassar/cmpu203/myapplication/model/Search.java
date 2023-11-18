@@ -41,6 +41,10 @@ public class Search {
 
     ArrayList<Room> roomArrayList = roomLib.getRoomLibrary();
 
+    /**
+     *
+     * @return the results of the filter
+     */
     public List<Room> getResults(){
         //this.results = new ArrayList<>(filter(roomSet,filterSet));
         this.results = (List<Room>) filter(roomArrayList, filterSet);

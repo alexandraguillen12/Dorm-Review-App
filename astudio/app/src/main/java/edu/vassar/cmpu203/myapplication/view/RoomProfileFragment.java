@@ -27,6 +27,7 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
     private FragmentRoomProfileBinding binding; // reference to graphical widgets from xml layout
     Listener listener;
     int position;
+    Room room;
 
     //private ViewPager2 viewPager2;
     private PhotoPagerAdapter pagerAdapter;
@@ -34,9 +35,10 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
     private ImageButton btnNext;
 
 
-    public RoomProfileFragment(@NonNull Listener listener, int position) {
+    public RoomProfileFragment(@NonNull Listener listener, int position, Room room) {
         this.listener = listener;
         this.position = position;
+        this.room = room;
     }
 
 
@@ -81,6 +83,8 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
                 }
             }
         });
+
+        this.binding.description.setText(this.room.toString());
 
         this.binding.back2Button.setOnClickListener(new View.OnClickListener() {
             @Override
