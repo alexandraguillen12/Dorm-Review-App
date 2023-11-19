@@ -10,3 +10,11 @@ Students can favourite and save the rooms too. The risky part in this use case w
 This can also apply for the students are looking for the review, and they can't see the review. Either the information are not saved or not accurate. 
 Since this use case also uses much information it also helps a lot of the jobs get done. The critical parts would be displaying the rooms 
 and updating the favorites and saved information. 
+
+For the next phase, we need to work on the saving favorite rooms, being able to save reviews even when a new search is done,
+and adding the option to add photos and add a rating in a review. For now, the photos are the same for every room, but we need
+to be able to add photos to certain rooms so that it only appears in the room profile of the room the photos belong to. We
+also want to work on the look of the app and screens so that it can look more appealing. Working on saving the reviews is the
+most important because there would be no point in the user writing a review if it is not saved when a new search is done.
+Saving favorites would be very helpful for users to save rooms they like, so they can go back and find it. Although, right now,
+our room library is not that big, realistically, it would be big, so it would be useful.
