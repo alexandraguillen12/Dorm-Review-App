@@ -28,11 +28,26 @@ public class WriteReviewFragment extends Fragment implements IWriteReviewView {
     private FragmentWriteReviewBinding binding; // reference to graphical widgets from xml layout
     Listener listener;                          // observer to be notified of events of interest
 
+    /**
+     * A new WriteReviewFragment with the listener.
+     * @param listener Be notified of the events related to the view.
+     */
     public WriteReviewFragment(@NonNull Listener listener) {
         this.listener = listener;
     }
 
-
+    /**
+     * Called to view the new hierarchy associate with the fragments.
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return THe view for the fragment UI and null.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,6 +56,13 @@ public class WriteReviewFragment extends Fragment implements IWriteReviewView {
         return this.binding.getRoot();
     }
 
+    /**
+     * Called immediately after OnCreateView() has returned and check if the view hierarchy
+     * has been completely created.
+     * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

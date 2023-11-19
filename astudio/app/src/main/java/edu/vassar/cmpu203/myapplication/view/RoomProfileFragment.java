@@ -20,7 +20,8 @@ import edu.vassar.cmpu203.myapplication.model.Review;
 import edu.vassar.cmpu203.myapplication.model.Room;
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@link Fragment} subclass. It represents a fragment that displays detailed information
+ * about a specific room or image.
  * Use the {@link RoomProfileFragment} factory method to
  * create an instance of this fragment.
  */
@@ -33,14 +34,30 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
     //private ViewPager2 viewPager2;
     private PhotoPagerAdapter pagerAdapter;
 
-
+    /**
+     * Construct a new RoomProfileFragment that provides listener, position and room details.
+     * @param listener It notified the events happing in the fragment.
+     * @param position THe position of hte room within the overall room list
+     * @param room Containing details about the room.
+     */
     public RoomProfileFragment(@NonNull Listener listener, int position, Room room) {
         this.listener = listener;
         this.position = position;
         this.room = room;
     }
 
-
+    /**
+     * Called to view hierarchy associate with the fragment.
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return The view for the fragment UI or nulll.
+     */
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -49,6 +66,13 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
         return this.binding.getRoot();
     }
 
+    /**
+     * It called immediately after the OnViewCreated build to check if the view hierarchy has been
+     * completely created.
+     * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

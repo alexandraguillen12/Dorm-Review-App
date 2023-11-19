@@ -35,6 +35,10 @@ public class SearchFragment extends Fragment implements ISearchView{
     RoomType rt;
     boolean avail;
 
+    /**
+     * Called to check if the view hierachy associated with the fragment.
+     * @param listener The fragment searched for the UI or null.
+     */
     public SearchFragment(@NonNull Listener listener){
         this.listener = listener;
     }
@@ -48,6 +52,12 @@ public class SearchFragment extends Fragment implements ISearchView{
         return this.binding.getRoot();
     }
 
+    /**
+     * Constructs the new class and view the hierarchy has been completely created.
+     * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

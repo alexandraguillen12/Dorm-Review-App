@@ -21,7 +21,8 @@ import edu.vassar.cmpu203.myapplication.R;
 import edu.vassar.cmpu203.myapplication.databinding.FragmentRoomSelectionBinding;
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@link Fragment} subclass. It represents a list of frgment that represents a list of
+ * room selection based on the search.
  * Use the {@link RoomSelectionFragment} factory method to
  * create an instance of this fragment.
  */
@@ -31,7 +32,12 @@ public class RoomSelectionFragment extends Fragment implements IRoomSelectionVie
     private final Listener listener; // observer to be notified of events of interest
     private final List<Room> curResults; // results of the search
 
-
+    /**
+     * This class represents a new RoomselectionFragment with the provide current search results
+     * and listener.
+     * @param curResults The list of rooms represents teh current rooms.
+     * @param listener To be notified of events about the selection.
+     */
 
     public RoomSelectionFragment(List<Room> curResults, @NonNull Listener listener) {
         this.curResults = curResults;
@@ -46,6 +52,12 @@ public class RoomSelectionFragment extends Fragment implements IRoomSelectionVie
         return this.binding.getRoot();
     }
 
+    /**
+     * Called immediately OnCreatView() to check if the view hierarchy has been completely created
+     * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
