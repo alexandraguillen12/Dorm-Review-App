@@ -35,7 +35,6 @@ public class WriteReviewFragment extends Fragment implements IWriteReviewView {
     public WriteReviewFragment(@NonNull Listener listener) {
         this.listener = listener;
     }
-
     /**
      * Called to view the new hierarchy associate with the fragments.
      * @param inflater The LayoutInflater object that can be used to inflate
