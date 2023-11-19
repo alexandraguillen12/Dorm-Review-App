@@ -11,7 +11,7 @@ import java.util.Set;
 
 import javax.xml.transform.Result;
 
-public class SearchTest {
+public class SearchTest extends TestCase {
 
     @Test
     public void addFilters() {

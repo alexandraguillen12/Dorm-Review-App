@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 
 import edu.vassar.cmpu203.myapplication.R;
 import edu.vassar.cmpu203.myapplication.databinding.FragmentRoomProfileBinding;
+import edu.vassar.cmpu203.myapplication.model.Review;
 import edu.vassar.cmpu203.myapplication.model.Room;
 
 /**
@@ -25,7 +26,7 @@ import edu.vassar.cmpu203.myapplication.model.Room;
  */
 public class RoomProfileFragment extends Fragment implements IRoomProfileView {
     private FragmentRoomProfileBinding binding; // reference to graphical widgets from xml layout
-    Listener listener;
+    Listener listener;                          // observer to be notified of events of interest
     int position;
     Room room;
 
@@ -84,10 +85,21 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
 
         this.binding.description.setText(this.room.toString());
 
+        this.binding.recyclerView2.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        ReviewAdapter adapter = new ReviewAdapter(getContext().getApplicationContext(), room.getReviews());
+        this.binding.recyclerView2.setAdapter(adapter);
+
         this.binding.back2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 RoomProfileFragment.this.listener.onNewSelection();
+            }
+        });
+
+        this.binding.writeReviewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RoomProfileFragment.this.listener.onWriteReview();
             }
         });
     }

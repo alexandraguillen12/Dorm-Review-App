@@ -115,8 +115,6 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
     @Override
     public void onAddedReview(String headline, String reviewStr, IWriteReviewView view){
         this.curRoom.addReviews(new Review(headline, reviewStr));
-        Fragment rpfrag = new RoomProfileFragment(this,curSearch.getResults().indexOf(curRoom),curRoom);
-        this.mainView.displayFragment(rpfrag, false, "room profile");
     }
 
     @Override

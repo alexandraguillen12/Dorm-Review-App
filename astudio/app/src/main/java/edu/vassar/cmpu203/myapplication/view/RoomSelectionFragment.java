@@ -29,7 +29,7 @@ public class RoomSelectionFragment extends Fragment implements IRoomSelectionVie
 
     private FragmentRoomSelectionBinding binding; // reference to graphical widgets from xml layout
     private final Listener listener; // observer to be notified of events of interest
-    private final List<Room> curResults; // total amount to charge for sale
+    private final List<Room> curResults; // results of the search
 
 
 

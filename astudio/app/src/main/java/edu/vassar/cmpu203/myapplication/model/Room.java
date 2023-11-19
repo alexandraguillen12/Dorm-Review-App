@@ -1,6 +1,7 @@
 package edu.vassar.cmpu203.myapplication.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Room {
     private House House;
@@ -31,9 +32,7 @@ public class Room {
         return this.Availability;
     };
 
-    public ArrayList<Review> getReviews() {
-        return reviews;
-    }
+    public ArrayList<Review> getReviews() {return this.reviews;}
 
     public void addReviews(Review review){
         this.reviews.add(review);

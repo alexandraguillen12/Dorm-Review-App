@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import edu.vassar.cmpu203.myapplication.databinding.FragmentRoomProfileBinding;
 import edu.vassar.cmpu203.myapplication.databinding.FragmentWriteReviewBinding;
 import edu.vassar.cmpu203.myapplication.view.IWriteReviewView;
 import edu.vassar.cmpu203.myapplication.R;
@@ -24,8 +25,8 @@ import edu.vassar.cmpu203.myapplication.R;
  */
 public class WriteReviewFragment extends Fragment implements IWriteReviewView {
 
-    private FragmentWriteReviewBinding binding;
-    Listener listener; // observer to be notified of events of interest
+    private FragmentWriteReviewBinding binding; // reference to graphical widgets from xml layout
+    Listener listener;                          // observer to be notified of events of interest
 
     public WriteReviewFragment(@NonNull Listener listener) {
         this.listener = listener;
@@ -36,7 +37,8 @@ public class WriteReviewFragment extends Fragment implements IWriteReviewView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_write_review, container, false);
+        this.binding = FragmentWriteReviewBinding.inflate(inflater);
+        return this.binding.getRoot();
     }
 
     @Override
@@ -72,6 +74,7 @@ public class WriteReviewFragment extends Fragment implements IWriteReviewView {
 
                 // notify listener (controller)
                 WriteReviewFragment.this.listener.onAddedReview(headlineStr, writtenReviewStr, WriteReviewFragment.this);
+                WriteReviewFragment.this.listener.onReviewDone();
             }
         });
     }
