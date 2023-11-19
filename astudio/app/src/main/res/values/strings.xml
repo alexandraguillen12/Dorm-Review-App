@@ -64,5 +64,17 @@
     <string name="back2">Back</string>
     <string name="room_id_text">id</string>
     <string name="description">description_test_def</string>
+    <string name="review_title">Reviews</string>
+    <string name="write_a_review">Write a review</string>
+    <string name="headline">headlineText</string>
+    <string name="review">reviewText</string>
+
+    <!-- for write review screen -->
+    <string name="write_review_title">Write Review</string>
+    <string name="add_headline">Add headline</string>
+    <string name="add_written_review">Add written review</string>
+    <string name="add_review">Add review</string>
+    <string name="back3">Back</string>
+    <string name="missing_item_fields_error">Both headline and written review are required!</string>
 
 </resources>

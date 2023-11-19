@@ -31,8 +31,6 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
 
     //private ViewPager2 viewPager2;
     private PhotoPagerAdapter pagerAdapter;
-    private ImageButton btnPrevious;
-    private ImageButton btnNext;
 
 
     public RoomProfileFragment(@NonNull Listener listener, int position, Room room) {

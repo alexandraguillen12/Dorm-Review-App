@@ -7,6 +7,11 @@ public interface IRoomProfileView {
          */
         void onNewSelection();
 
+        /**
+         * Called when the user indicates the desire to write a review.
+         */
+        void onWriteReview();
+
     }
 
 }

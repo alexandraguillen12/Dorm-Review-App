@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WriteReviewFragment">
+
+
+    <TextView
+        android:id="@+id/writeReviewText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/write_review_title"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/headlineTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/writeReviewText"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/add_headline"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/headlineTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headlineTitle"
+        android:layout_marginTop="5dp"
+        android:layout_alignStart="@id/headlineTitle"
+        android:layout_alignEnd="@id/headlineTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/headlineInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/writtenReviewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headlineTextField"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@id/headlineTitle"
+        android:layout_alignEnd="@id/headlineTitle"
+        android:text="@string/add_written_review"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="366dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/reviewTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/writtenReviewTitle"
+        android:layout_marginTop="5dp"
+        android:layout_alignStart="@id/headlineTitle"
+        android:layout_alignEnd="@id/headlineTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/writtenReviewInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/rowButtons2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/reviewTextField"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/addReviewButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_review" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/back3Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back3" />
+    </LinearLayout>
+
+</RelativeLayout>
