@@ -30,8 +30,7 @@ import edu.vassar.cmpu203.myapplication.view.WriteReviewFragment;
 
 
 public class MainActivity extends AppCompatActivity implements ISearchView.Listener,
-        IRoomSelectionView.Listener, IRoomProfileView.Listener, INoResultsView.Listener,
-        IRoomProfileView.Listener, IWriteReviewView.Listener {
+        IRoomSelectionView.Listener, IRoomProfileView.Listener, INoResultsView.Listener, IWriteReviewView.Listener {
 
     Search curSearch = new Search();
     Room curRoom;
