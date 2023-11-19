@@ -4,7 +4,10 @@ import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * The class Search represents a search functionality for feltiring a collection of the rooms
+ * based on various criteria. It includes methode for adding filters. retervial
+ */
 public class Search {
 
     private List<Room> results;
@@ -28,6 +31,10 @@ public class Search {
         if (availability) {this.filterSet.add(availabilityFilter);}
     }
 
+    /**
+     * Retrieves the count of active filters in the filter set.
+     * @return The count of active retrieves.
+     */
     public int getFilterCount(){ return this.filterSet.size();}
 
 
@@ -36,10 +43,10 @@ public class Search {
             for (Filter f : filters) roomList = f.filter(roomList);}
         return roomList;
     }
-
-
-
     ArrayList<Room> roomArrayList = roomLib.getRoomLibrary();
+    /**
+     * Recievering the seardh results by applying the active search to the room list.
+     */
 
     /**
      *

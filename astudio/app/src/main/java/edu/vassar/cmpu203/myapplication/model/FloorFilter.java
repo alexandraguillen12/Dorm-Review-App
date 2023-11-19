@@ -5,6 +5,10 @@ import java.util.Set;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * This class implements the filter and represents a filter for filtiring a list of roms based on
+ * the floor numbers.
+ */
 public class FloorFilter implements Filter {
     int floor;
 

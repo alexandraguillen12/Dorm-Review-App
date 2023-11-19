@@ -3,15 +3,23 @@ package edu.vassar.cmpu203.myapplication.model;
 import java.util.ArrayList;
 import java.util.Set;
 
+/**
+ * The RoomLibrary class represents a library of rooms within a context, allowing the management and
+ * retrieval of room information. It contains a collection of rooms, a default size, methode for
+ * adding the rooms, and receiving the room library and representing a short representation of the rooms.
+ */
 public class RoomLibrary {
     public ArrayList<Room> rooms;
 
 
     public int size = 12;
-
     public RoomLibrary(){
         this.rooms = new ArrayList<>();
     }
+
+    /**
+     * Adds new room to the library with the specified parameters and the specified size.
+     */
 
     Room[] roomArray = new Room[] {
             new Room(House.MAIN,3, RoomType.SINGLE, true),
@@ -51,7 +59,11 @@ public class RoomLibrary {
         return this.rooms;
     }
 
-
+    /**
+     * Generates a string representation of the room in the library, including their context
+     * and their detail
+     * @return A formatting string representing the rooms in the library.
+     */
 
     public String toString(){
         int i = 1;

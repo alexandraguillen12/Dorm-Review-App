@@ -9,10 +9,17 @@ import android.widget.TextView;
 
 import edu.vassar.cmpu203.myapplication.R;
 
+/**
+ * THis class extends from RecyclerView.ViewHolder and represents a single item in a RecycleView.
+ */
 public class MyViewHolder extends RecyclerView.ViewHolder {
     ImageView imageView;
     TextView roomIdView,houseView,floorView,rtView,availView;
 
+    /**
+     * Constructs a new MyViewHolder with the provided item view.
+     * @param itemView This is representing a single item in RecyclerView.
+     */
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
         //imageView = itemView.findViewById(R.id.imageview);

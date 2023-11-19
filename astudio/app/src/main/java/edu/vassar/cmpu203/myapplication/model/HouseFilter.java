@@ -2,6 +2,10 @@ package edu.vassar.cmpu203.myapplication.model;
 
 import java.util.*;
 
+/**
+ * The HouseFilter implements the filter interface and represents a filter for filtering a list
+ * house based on house status.
+ */
 public class HouseFilter implements Filter {
 
     House name;

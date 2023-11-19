@@ -28,13 +28,24 @@ import edu.vassar.cmpu203.myapplication.view.RoomSelectionFragment;
 import edu.vassar.cmpu203.myapplication.view.SearchFragment;
 import edu.vassar.cmpu203.myapplication.view.WriteReviewFragment;
 
-
+/**
+ * The MainActivity class represents the main activity of the application. It extends AppCompatActivity
+ * implemensts several listener interfaces for different views.The main functionality includes handling
+ * searches, room selection, room profile, and handling cases where no results are found.
+ */
 public class MainActivity extends AppCompatActivity implements ISearchView.Listener,
         IRoomSelectionView.Listener, IRoomProfileView.Listener, INoResultsView.Listener, IWriteReviewView.Listener {
 
     Search curSearch = new Search();
     Room curRoom;
     IMainView mainView;
+
+    /**
+     * Called when the activity first called. Responsible for initializing the main view,
+     * and displaying the initial fragment for searching rooms.
+     * @param savedInstanceState Bundle containing the activity's previously saved state.
+     *                           or null if there's no saved state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,19 +76,29 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
         else {this.mainView.displayFragment(rsfrag, false, "room selection");}
     }
 
+    /**
+     * Called when the user has completed the room selection for a specific position.
+     * @param position The position of the selected rooms.
+     */
     @Override
     public void onSelectionDone(int position) {
         this.curRoom = curSearch.getResults().get(position);
         this.mainView.displayFragment(new RoomProfileFragment(this, position, curRoom), false, "view room");
     }
 
-
+    /**
+     * Invoked when the user initialize a new search. Resets the current search and
+     * displays the SearchFragment for the new search.
+     */
     @Override
     public void onNewSearch() {
         this.curSearch = new Search();
         this.mainView.displayFragment(new SearchFragment(this), true, "search");
     }
 
+    /**
+     * Called when the usr wants to make a new room selection.
+     */
     @Override
     public void onNewSelection(){
         List<Room> curResults = this.curSearch.getResults();
