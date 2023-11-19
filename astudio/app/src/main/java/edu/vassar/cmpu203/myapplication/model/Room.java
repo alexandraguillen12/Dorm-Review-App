@@ -39,7 +39,13 @@ public class Room {
     }
 
     public String toString(){
-        String str = String.format("%s, %d, %s, ", this.House, this.Floor, this.RoomType);
+        String str = "";
+        String houseStr = this.House.toString();
+        houseStr = houseStr.substring(0,1) + houseStr.substring(1).toLowerCase() + " House";
+        str += houseStr + ", Floor " + this.Floor + ", ";
+        String rtStr = this.RoomType.toString();
+        rtStr = rtStr.substring(0,1) + rtStr.substring(1).toLowerCase();
+        str += rtStr + ", ";
         if (this.Availability) {str += "available";}
         else {str += "not available";}
         return str;
