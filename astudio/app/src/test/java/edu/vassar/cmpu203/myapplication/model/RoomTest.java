@@ -50,6 +50,6 @@ public class RoomTest extends TestCase {
     @Test
     public void testTestToString() {
         Room r = new Room(House.MAIN, 1, RoomType.SINGLE,true);
-        assertEquals("Main", r.toString());
+        assertEquals("Main House, Floor 1, Single, available", r.toString());
     }
 }
