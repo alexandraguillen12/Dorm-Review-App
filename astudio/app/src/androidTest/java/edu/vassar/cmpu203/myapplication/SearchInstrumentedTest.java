@@ -11,6 +11,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
+import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -31,7 +32,7 @@ public class SearchInstrumentedTest {
     @Test
     public void testSearch() {
 
-        // get a ViewInteraction for the line items text
+        // get a ViewInteraction for the search for a room text
         ViewInteraction viSearchText = Espresso.onView(
                 ViewMatchers.withId(R.id.searchText));
         // check the text matches the default one from strings.xml
@@ -65,47 +66,32 @@ public class SearchInstrumentedTest {
         Espresso.onView(ViewMatchers.withText("Available rooms"))
                 .perform(ViewActions.click());
 
+
         // find search button and click it
         Espresso.onView(ViewMatchers.withId(R.id.searchButton))
                 .perform(ViewActions.click());
 
-        /*
-        /// check that spinner chose "Jewett"
-        viHouseName.check(
-                ViewAssertions.matches(
-                        ViewMatchers.withSpinnerText("Jewett")));
-        /// check that spinner chose "8"
-        viHouseName.check(
-                ViewAssertions.matches(
-                        ViewMatchers.withSpinnerText("8")));
-        /// check that spinner chose "Single"
-        viHouseName.check(
-                ViewAssertions.matches(
-                        ViewMatchers.withSpinnerText("Single")));
-        /// check that line items text contains 2 x avocado
-        viHouseName.check(
-                ViewAssertions.matches(
-                        ViewMatchers.withSpinnerText("Available rooms")));
 
-         */
     }
 
     /**
-     * Tests that we're able to go back to do a new search.
+     * Tests that the results of the search are correct.
+     * Then it will return to the search screen.
      */
     @Test
-    public void testMovingToPayment(){
+    public void testResults(){
         testSearch(); // call other test as a helper method
 
-        /*
-        // find and click the done button
-        Espresso.onView(ViewMatchers.withText(R.string.done_button_label))
+        // find and click the new search button
+        Espresso.onView(ViewMatchers.withText(R.string.new_search))
                 .perform(ViewActions.click());
 
-         */
-
-        // confirm we're in the payment screen by checking that a pay button exists
-        Espresso.onView(ViewMatchers.withId(R.id.newSearchButton));
+        // check that it returned to the search screen
+        ViewInteraction viSearchText = Espresso.onView(
+                ViewMatchers.withId(R.id.searchText));
+        viSearchText.check(
+                ViewAssertions.matches(
+                        ViewMatchers.withText(R.string.search_msg_fragment)));
     }
 
 }
