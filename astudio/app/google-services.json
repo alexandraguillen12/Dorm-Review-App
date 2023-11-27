@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "560289322557",
+    "project_id": "my-application-9d13a",
+    "storage_bucket": "my-application-9d13a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560289322557:android:cdc4f31df790c496e8fc54",
+        "android_client_info": {
+          "package_name": "edu.vassar.cmpu203.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR1xJWzM6GastJYsJ_5EOYYSIHV_qh6rE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
