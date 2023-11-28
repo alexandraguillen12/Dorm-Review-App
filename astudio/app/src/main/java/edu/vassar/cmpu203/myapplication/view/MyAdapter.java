@@ -69,7 +69,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
      */
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        String roomIdStr = "Room " + (position + 1);
+        String roomIdStr = "Room " + rooms.get(position).getRoomNum();
         holder.roomIdView.setText(roomIdStr);
         String houseStrDisplay = rooms.get(position).getHouse().toString();
         houseStrDisplay = houseStrDisplay.substring(0,1) + houseStrDisplay.substring(1).toLowerCase() + " House";

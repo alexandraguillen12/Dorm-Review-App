@@ -8,13 +8,15 @@ public class Room {
     private int Floor;
     private RoomType RoomType;
     private boolean Availability;
+    private int roomNum;
     private ArrayList<Review> reviews = new ArrayList<>();
 
-    public Room(House house, int floor, RoomType roomType, boolean availability){
+    public Room(House house, int floor, RoomType roomType, boolean availability, int roomNum){
         this.House = house;
         this.Floor = floor;
         this.RoomType = roomType;
         this.Availability = availability;
+        this.roomNum = roomNum;
     };
     public House getHouse(){
         return this.House;
@@ -31,6 +33,8 @@ public class Room {
     public boolean getAvailability(){
         return this.Availability;
     };
+
+    public int getRoomNum() { return roomNum; }
 
     public ArrayList<Review> getReviews() {return this.reviews;}
 
