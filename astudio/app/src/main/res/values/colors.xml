@@ -3,3 +3,20 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
+ <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_hight="match_parent"/>
+
+  <RelativeLayout
+    android:layout_marginTop="32dp"
+    android:layout_marginRight="28dp"
+    android:layout_marginLeft="28dp"
+    android:layout_width="match_parent"
+    android:layout_hight="match_parent"/>
+   <TextView
+    android:textSize="24dp"
+    android:textColor="dFFFFF"
+    android:layout_width="wrap_content"
+    android:layout_hight="wrap_content"/>
+
