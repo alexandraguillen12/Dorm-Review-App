@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/roomIdText"
@@ -97,6 +98,7 @@
         android:id="@+id/rowButtons"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:gravity="center"
         android:orientation="horizontal">
@@ -105,17 +107,21 @@
             android:id="@+id/back2Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/back2" />
+            android:text="@string/back2"
+            android:textColor="@color/white"
+            android:background="@drawable/btr_bg"/>
 
         <Space
             android:layout_width="20dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"/>
 
         <Button
             android:id="@+id/writeReviewButton"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/write_a_review" />
+            android:text="@string/write_a_review"
+            android:textColor="@color/white"
+            android:background="@drawable/btr_bg"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

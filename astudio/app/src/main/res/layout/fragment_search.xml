@@ -5,7 +5,8 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.SearchFragment">
+    tools:context=".view.SearchFragment"
+    android:background="@color/white">
 
 
     <TextView
@@ -14,55 +15,67 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/search_msg_fragment"
+        android:textSize="23dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/dropdown_menu" />
 
-    <Spinner
-        android:id="@+id/houseSpinner"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:entries="@array/houseSpinner_entries"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <RelativeLayout
+        android:id="@+id/dropdown_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchText" />
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <Spinner
-        android:id="@+id/floorSpinner"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:entries="@array/floorSpinner_entries"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/houseSpinner" />
+        <Spinner
+            android:id="@+id/houseSpinner"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:entries="@array/houseSpinner_entries"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Spinner
-        android:id="@+id/roomTypeSpinner"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:entries="@array/roomTypeSpinner_entries"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/floorSpinner" />
+        <Spinner
+            android:id="@+id/floorSpinner"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/houseSpinner"
+            android:entries="@array/floorSpinner_entries"/>
 
-    <Spinner
-        android:id="@+id/availabilitySpinner"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:entries="@array/availabilitySpinner_entries"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roomTypeSpinner" />
+        <Spinner
+            android:id="@+id/roomTypeSpinner"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/floorSpinner"
+            android:entries="@array/roomTypeSpinner_entries" />
+
+        <Spinner
+            android:id="@+id/availabilitySpinner"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/roomTypeSpinner"
+            android:entries="@array/availabilitySpinner_entries" />
+
+    </RelativeLayout>
+
+
 
     <Button
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         android:text="@string/searchButton"
+        android:background="@drawable/btr_bg"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/availabilitySpinner" />
+        app:layout_constraintTop_toBottomOf="@id/dropdown_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
