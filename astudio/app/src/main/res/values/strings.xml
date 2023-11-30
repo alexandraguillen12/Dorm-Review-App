@@ -4,6 +4,7 @@
     <string name="main_view_msg">Dorm Review</string>
     <string name="search_msg_fragment">Search for room</string>
     <string name="searchButton">Search</string>
+    <string name="no_results_msg">No results</string>
 
     <!-- for search screen -->
     <string-array name="houseSpinner_entries">

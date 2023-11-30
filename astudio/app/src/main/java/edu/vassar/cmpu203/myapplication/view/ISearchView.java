@@ -17,12 +17,12 @@ public interface ISearchView {
         /**
          * Called when the user is done choosing from the dropdowns.
          */
-        void onAddedFilters(House name, int floor, RoomType rt, boolean availability, ISearchView view);
+        void onAddedFilters(String name, int floor, String rt, boolean availability, ISearchView view);
 
         /**
          * Called when the user is done adding filters.
          */
-        void onSearchDone();
+        void onSearchDone(ISearchView view);
 
     }
 

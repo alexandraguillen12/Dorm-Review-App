@@ -1,37 +1,39 @@
 package edu.vassar.cmpu203.myapplication.model;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Room {
-    private House House;
-    private int Floor;
-    private RoomType RoomType;
-    private boolean Availability;
+    private String house;
+    private int floor;
+    private String roomType;
+    private boolean availability;
     private int roomNum;
     private ArrayList<Review> reviews = new ArrayList<>();
 
-    public Room(House house, int floor, RoomType roomType, boolean availability, int roomNum){
-        this.House = house;
-        this.Floor = floor;
-        this.RoomType = roomType;
-        this.Availability = availability;
+    public Room(String house, int floor, String roomType, boolean availability, int roomNum){
+        this.house = house;
+        this.floor = floor;
+        this.roomType = roomType;
+        this.availability = availability;
         this.roomNum = roomNum;
     };
-    public House getHouse(){
-        return this.House;
+    public String getHouse(){
+        return this.house;
     };
 
     public int getFloor(){
-        return this.Floor;
+        return this.floor;
     };
 
-    public RoomType getRoomType(){
-        return this.RoomType;
+    public String getRoomType(){
+        return this.roomType;
     };
 
     public boolean getAvailability(){
-        return this.Availability;
+        return this.availability;
     };
 
     public int getRoomNum() { return roomNum; }
@@ -42,15 +44,17 @@ public class Room {
         this.reviews.add(review);
     }
 
+    @Override
+    @NonNull
     public String toString(){
         String str = "";
-        String houseStr = this.House.toString();
-        houseStr = houseStr.substring(0,1) + houseStr.substring(1).toLowerCase() + " House";
-        str += houseStr + ", Floor " + this.Floor + ", ";
-        String rtStr = this.RoomType.toString();
-        rtStr = rtStr.substring(0,1) + rtStr.substring(1).toLowerCase();
+        String houseStr = this.house;
+        houseStr = houseStr.charAt(0) + houseStr.substring(1).toLowerCase() + " House";
+        str += houseStr + ", Floor " + this.floor + ", ";
+        String rtStr = this.roomType;
+        rtStr = rtStr.charAt(0) + rtStr.substring(1).toLowerCase();
         str += rtStr + ", ";
-        if (this.Availability) {str += "available";}
+        if (this.availability) {str += "available";}
         else {str += "not available";}
         return str;
     };

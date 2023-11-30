@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoomTypeFilter implements Filter{
-    RoomType type;
+    String type;
 
 
-    public RoomTypeFilter(RoomType type){
+    public RoomTypeFilter(String type){
         this.type = type;
     }
     /*
@@ -19,7 +19,7 @@ public class RoomTypeFilter implements Filter{
     public ArrayList<Room> filter(ArrayList<Room> roomList){
         ArrayList<Room> filteredList = new ArrayList<Room>();
         for (Room r : roomList) {
-            if (this.type == r.getRoomType()) {
+            if (this.type.equals(r.getRoomType())) {
                 filteredList.add(r);
             }
         }

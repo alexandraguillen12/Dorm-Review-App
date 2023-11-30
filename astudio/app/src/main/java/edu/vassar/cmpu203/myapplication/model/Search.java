@@ -20,14 +20,14 @@ public class Search {
         this.results = new ArrayList<>();
     };
 
-    public void addFilters(House name, int floor, RoomType type, boolean availability){
+    public void addFilters(String name, int floor, String type, boolean availability){
         HouseFilter houseFilter = new HouseFilter(name);
         FloorFilter floorFilter = new FloorFilter(floor);
         RoomTypeFilter roomTypeFilter = new RoomTypeFilter(type);
         AvailabilityFilter availabilityFilter = new AvailabilityFilter(availability);
-        if (name != House.ALL_HOUSES) {this.filterSet.add(houseFilter);}
+        if (!name.equals("All Houses")) {this.filterSet.add(houseFilter);}
         if (floor != 0) {this.filterSet.add(floorFilter);}
-        if (type != RoomType.ALL_ROOM_TYPES) {this.filterSet.add(roomTypeFilter);}
+        if (!type.equals("All Room Types")) {this.filterSet.add(roomTypeFilter);}
         if (availability) {this.filterSet.add(availabilityFilter);}
     }
 

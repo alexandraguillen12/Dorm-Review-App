@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import edu.vassar.cmpu203.myapplication.R;
 import edu.vassar.cmpu203.myapplication.databinding.FragmentSearchBinding;
@@ -66,23 +67,16 @@ public class SearchFragment extends Fragment implements ISearchView{
 
             @Override
             public void onClick(View v) {
-                //next fragment?
-                String houseStr = SearchFragment.this.binding.houseSpinner.getSelectedItem().toString();
-                houseStr = houseStr.toUpperCase();
-                if (houseStr.equals("ALL HOUSES")) {name = House.ALL_HOUSES;}
-                else {name = House.valueOf(houseStr);}
+                String name = SearchFragment.this.binding.houseSpinner.getSelectedItem().toString();
                 String floorStr = SearchFragment.this.binding.floorSpinner.getSelectedItem().toString();
                 if (floorStr.equals("All Floors")) {floor = 0;}
                 else {floor = Integer.parseInt(floorStr);}
-                String rtStr = SearchFragment.this.binding.roomTypeSpinner.getSelectedItem().toString();
-                rtStr = rtStr.toUpperCase();
-                if (rtStr.equals("ALL ROOM TYPES")) {rt = RoomType.ALL_ROOM_TYPES;}
-                else {rt = RoomType.valueOf(rtStr);}
+                String rt = SearchFragment.this.binding.roomTypeSpinner.getSelectedItem().toString();
                 String availStr = SearchFragment.this.binding.availabilitySpinner.getSelectedItem().toString();
                 avail = availStr.equals("Available rooms");
 
                 SearchFragment.this.listener.onAddedFilters(name, floor, rt, avail, SearchFragment.this);
-                SearchFragment.this.listener.onSearchDone();
+                SearchFragment.this.listener.onSearchDone(SearchFragment.this);
             }
         });
     }

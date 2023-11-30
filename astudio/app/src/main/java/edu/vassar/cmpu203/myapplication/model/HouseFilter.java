@@ -8,10 +8,10 @@ import java.util.*;
  */
 public class HouseFilter implements Filter {
 
-    House name;
+    String name;
 
 
-    public HouseFilter(House name){
+    public HouseFilter(String name){
         this.name = name;
     }
     /*
@@ -21,7 +21,7 @@ public class HouseFilter implements Filter {
     public ArrayList<Room> filter(ArrayList<Room> roomList){
         ArrayList<Room> filteredList = new ArrayList<Room>();
         for (Room r : roomList) {
-            if (this.name == r.getHouse()) {
+            if (this.name.equals(r.getHouse())) {
                 filteredList.add(r);
             }
         }

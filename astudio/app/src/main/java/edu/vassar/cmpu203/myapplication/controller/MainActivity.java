@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.List;
 
 import edu.vassar.cmpu203.myapplication.R;
@@ -15,6 +17,8 @@ import edu.vassar.cmpu203.myapplication.model.Room;
 import edu.vassar.cmpu203.myapplication.model.House;
 import edu.vassar.cmpu203.myapplication.model.RoomType;
 import edu.vassar.cmpu203.myapplication.model.Search;
+import edu.vassar.cmpu203.myapplication.persistence.FirestoreFacade;
+import edu.vassar.cmpu203.myapplication.persistence.IPersistenceFacade;
 import edu.vassar.cmpu203.myapplication.view.INoResultsView;
 import edu.vassar.cmpu203.myapplication.view.IRoomProfileView;
 import edu.vassar.cmpu203.myapplication.view.IRoomSelectionView;
@@ -30,15 +34,17 @@ import edu.vassar.cmpu203.myapplication.view.WriteReviewFragment;
 
 /**
  * The MainActivity class represents the main activity of the application. It extends AppCompatActivity
- * implemensts several listener interfaces for different views.The main functionality includes handling
+ * implements several listener interfaces for different views.The main functionality includes handling
  * searches, room selection, room profile, and handling cases where no results are found.
  */
 public class MainActivity extends AppCompatActivity implements ISearchView.Listener,
         IRoomSelectionView.Listener, IRoomProfileView.Listener, INoResultsView.Listener, IWriteReviewView.Listener {
 
+    Fragment curFrag; // keeps track of the current fragment being displayed
     Search curSearch = new Search();
     Room curRoom;
     IMainView mainView;
+    IPersistenceFacade persFacade;
 
     /**
      * Called when the activity first called. Responsible for initializing the main view,
@@ -50,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // initialize persistence facade
+        this.persFacade = new FirestoreFacade();
+
         // create main view object
         this.mainView = new MainView(this);
         SearchFragment searchFragment = new SearchFragment(this);
@@ -60,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
     }
 
     @Override
-    public void onAddedFilters(House name, int floor, RoomType rt, boolean availability, ISearchView view) {
+    public void onAddedFilters(String name, int floor, String rt, boolean availability, ISearchView view) {
         this.curSearch.addFilters(name, floor, rt, availability);
     }
 
@@ -68,12 +77,10 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
      * Called when the user is done adding filters.
      */
     @Override
-    public void onSearchDone() {
+    public void onSearchDone(ISearchView view) {
         List<Room> curResults = this.curSearch.getResults();
-        Fragment rsfrag = new RoomSelectionFragment(curResults, this);
-        Fragment nrfrag = new NoResultsFragment(this);
-        if (curResults.isEmpty()) {this.mainView.displayFragment(nrfrag, false, "no results");}
-        else {this.mainView.displayFragment(rsfrag, false, "room selection");}
+        this.curFrag = new RoomSelectionFragment(curResults, this);
+        this.mainView.displayFragment(this.curFrag, false, "room selection");
     }
 
     /**
@@ -83,7 +90,8 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
     @Override
     public void onSelectionDone(int position) {
         this.curRoom = curSearch.getResults().get(position);
-        this.mainView.displayFragment(new RoomProfileFragment(this, position, curRoom), false, "view room");
+        this.curFrag = new RoomProfileFragment(this, curRoom);
+        this.mainView.displayFragment(this.curFrag, false, "view room");
     }
 
     /**
@@ -93,40 +101,44 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
     @Override
     public void onNewSearch() {
         this.curSearch = new Search();
-        this.mainView.displayFragment(new SearchFragment(this), true, "search");
+        this.curFrag = new SearchFragment(this);
+        this.mainView.displayFragment(curFrag, true, "search");
     }
 
     /**
-     * Called when the usr wants to make a new room selection.
+     * Called when the user wants to make a new room selection.
      */
     @Override
     public void onNewSelection(){
         List<Room> curResults = this.curSearch.getResults();
-        Fragment rsfrag = new RoomSelectionFragment(curResults, this);
-        this.mainView.displayFragment(rsfrag, false, "room selection");
+        this.curFrag = new RoomSelectionFragment(curResults, this);
+        this.mainView.displayFragment(this.curFrag, false, "room selection");
     }
 
     @Override
     public void onWriteReview(){
-        Fragment wrfrag = new WriteReviewFragment(this);
-        this.mainView.displayFragment(wrfrag, false, "write review");
+        this.curFrag = new WriteReviewFragment(this);
+        this.mainView.displayFragment(this.curFrag, false, "write review");
     }
 
     @Override
     public void onAddedReview(String headline, String reviewStr, IWriteReviewView view){
-        this.curRoom.addReviews(new Review(headline, reviewStr));
+        Review curReview = new Review(headline, reviewStr);
+        this.curRoom.addReviews(curReview);
+        //save review to underlying persistence storage
+        this.persFacade.saveReview(curReview);
     }
 
     @Override
     public void onReviewDone(){
-        Fragment rpfrag = new RoomProfileFragment(this,curSearch.getResults().indexOf(curRoom),curRoom);
-        this.mainView.displayFragment(rpfrag, false, "room profile");
+        this.curFrag = new RoomProfileFragment(this,curRoom);
+        this.mainView.displayFragment(this.curFrag, false, "room profile");
     }
 
     @Override
     public void onGoBack(){
-        Fragment rpfrag = new RoomProfileFragment(this,curSearch.getResults().indexOf(curRoom),curRoom);
-        this.mainView.displayFragment(rpfrag, false, "room profile");
+        this.curFrag = new RoomProfileFragment(this,curRoom);
+        this.mainView.displayFragment(this.curFrag, false, "room profile");
     }
 
 }

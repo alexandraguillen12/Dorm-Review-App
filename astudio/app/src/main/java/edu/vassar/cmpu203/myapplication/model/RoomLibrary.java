@@ -1,5 +1,7 @@
 package edu.vassar.cmpu203.myapplication.model;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -22,25 +24,25 @@ public class RoomLibrary {
      */
 
     Room[] roomArray = new Room[] {
-            new Room(House.MAIN,3, RoomType.SINGLE, true, 327),
-            new Room(House.STRONG,4, RoomType.SINGLE, true, 403),
-            new Room(House.RAYMOND,2, RoomType.SINGLE, true, 223),
-            new Room(House.DAVISON,5, RoomType.DOUBLE, true, 557),
-            new Room(House.LATHROP,3, RoomType.DOUBLE, true, 305),
-            new Room(House.JEWETT,7, RoomType.TRIPLE, true, 711),
-            new Room(House.JOSSELYN,1, RoomType.SUITE, true, 113),
-            new Room(House.CUSHING,2, RoomType.TWO_ROOM_DOUBLE, true, 217),
-            new Room(House.NOYES,3, RoomType.TWO_ROOM_TRIPLE, true, 345),
-            new Room(House.JEWETT,9, RoomType.QUAD, true, 936),
-            new Room(House.JEWETT,8, RoomType.SINGLE, true, 823),
-            new Room(House.JEWETT,6, RoomType.SINGLE, true, 603),
-            new Room(House.JEWETT,8, RoomType.SINGLE, true, 815),
-            new Room(House.JEWETT,8, RoomType.SINGLE, true, 800),
-            new Room(House.JEWETT,8, RoomType.SINGLE, true, 810),
-            new Room(House.JEWETT,8, RoomType.SINGLE, true, 841),
-            new Room(House.JEWETT,8, RoomType.SINGLE, true, 836),
-            new Room(House.JEWETT,8, RoomType.SINGLE, true, 821),
-            new Room(House.JEWETT,8, RoomType.SINGLE, true, 816)};
+            new Room("Main",3, "Single", true, 327),
+            new Room("Strong",4, "Single", true, 403),
+            new Room("Raymond",2, "Single", true, 223),
+            new Room("Davison",5, "Double", true, 557),
+            new Room("Lathrop",3, "Double", true, 305),
+            new Room("Jewett",7, "Triple", true, 711),
+            new Room("Josselyn",1, "Suite", true, 113),
+            new Room("Cushing",2, "Two Room Double", true, 217),
+            new Room("Noyes",3, "Two Room Triple", true, 345),
+            new Room("Jewett",9, "Quad", true, 936),
+            new Room("Jewett",8, "Single", true, 823),
+            new Room("Jewett",6, "Single", true, 603),
+            new Room("Jewett",8, "Single", true, 815),
+            new Room("Jewett",8, "Single", true, 800),
+            new Room("Jewett",8, "Single", true, 810),
+            new Room("Jewett",8, "Single", true, 841),
+            new Room("Jewett",8, "Single", true, 836),
+            new Room("Jewett",8, "Single", true, 821),
+            new Room("Jewett",8, "Single", true, 816)};
 
 
     /*public void addRoom(House name, int floor, RoomType rt, boolean availability){
@@ -67,6 +69,8 @@ public class RoomLibrary {
      * @return A formatting string representing the rooms in the library.
      */
 
+    @Override
+    @NonNull
     public String toString(){
         int i = 1;
         String rl = "";

@@ -36,13 +36,11 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
 
     /**
      * Construct a new RoomProfileFragment that provides listener, position and room details.
-     * @param listener It notified the events happing in the fragment.
-     * @param position THe position of hte room within the overall room list
+     * @param listener It notified the events happening in the fragment.
      * @param room Containing details about the room.
      */
-    public RoomProfileFragment(@NonNull Listener listener, int position, Room room) {
+    public RoomProfileFragment(@NonNull Listener listener, Room room) {
         this.listener = listener;
-        this.position = position;
         this.room = room;
     }
 
@@ -77,7 +75,7 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String str = "Room " + (position + 1);
+        String str = "Room " + room.getRoomNum();
         this.binding.roomIdText.setText(str);
 
         int[] imageResourceIds = {
