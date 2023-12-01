@@ -3,7 +3,9 @@ package edu.vassar.cmpu203.myapplication.model;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Room {
     private String house;
@@ -11,6 +13,7 @@ public class Room {
     private String roomType;
     private boolean availability;
     private int roomNum;
+    private static final String ROOM_NUM = "roomNum";
     private ArrayList<Review> reviews = new ArrayList<>();
 
     public Room(String house, int floor, String roomType, boolean availability, int roomNum){
@@ -42,6 +45,10 @@ public class Room {
 
     public void addReviews(Review review){
         this.reviews.add(review);
+    }
+
+    public void setReviews(ArrayList<Review> reviews) {
+        this.reviews = reviews;
     }
 
     @Override

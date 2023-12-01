@@ -14,7 +14,6 @@ import edu.vassar.cmpu203.myapplication.model.Room;
 import edu.vassar.cmpu203.myapplication.model.Search;
 import edu.vassar.cmpu203.myapplication.persistence.FirestoreFacade;
 import edu.vassar.cmpu203.myapplication.persistence.IPersistenceFacade;
-import edu.vassar.cmpu203.myapplication.view.INoResultsView;
 import edu.vassar.cmpu203.myapplication.view.IRoomProfileView;
 import edu.vassar.cmpu203.myapplication.view.IRoomSelectionView;
 import edu.vassar.cmpu203.myapplication.view.ISearchView;
@@ -32,7 +31,7 @@ import edu.vassar.cmpu203.myapplication.view.WriteReviewFragment;
  * searches, room selection, room profile, and handling cases where no results are found.
  */
 public class MainActivity extends AppCompatActivity implements ISearchView.Listener,
-        IRoomSelectionView.Listener, IRoomProfileView.Listener, INoResultsView.Listener, IWriteReviewView.Listener {
+        IRoomSelectionView.Listener, IRoomProfileView.Listener, IWriteReviewView.Listener {
 
     Fragment curFrag; // keeps track of the current fragment being displayed
     Search curSearch = new Search();
@@ -120,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
         Review curReview = new Review(headline, reviewStr);
         this.curRoom.addReviews(curReview);
         //save review to underlying persistence storage
-        this.persFacade.saveReview(curReview);
+        this.persFacade.saveReview(curReview, curRoom);
     }
 
     @Override

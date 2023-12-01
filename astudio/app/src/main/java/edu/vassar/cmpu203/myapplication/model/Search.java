@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The class Search represents a search functionality for feltiring a collection of the rooms
- * based on various criteria. It includes methode for adding filters. retervial
+ * The class Search represents a search functionality for filtering a collection of the rooms
+ * based on various criteria. It includes methode for adding filters. retrieval
  */
 public class Search {
 
@@ -45,7 +45,7 @@ public class Search {
     }
     ArrayList<Room> roomArrayList = roomLib.getRoomLibrary();
     /**
-     * Recievering the seardh results by applying the active search to the room list.
+     * Receiving the search results by applying the active search to the room list.
      */
 
     /**

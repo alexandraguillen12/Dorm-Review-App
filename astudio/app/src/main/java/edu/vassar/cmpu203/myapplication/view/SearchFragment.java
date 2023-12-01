@@ -27,7 +27,7 @@ public class SearchFragment extends Fragment implements ISearchView{
     boolean avail;
 
     /**
-     * Called to check if the view hierachy associated with the fragment.
+     * Called to check if the view hierarchy associated with the fragment.
      * @param listener The fragment searched for the UI or null.
      */
     public SearchFragment(@NonNull Listener listener){

@@ -14,10 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 import edu.vassar.cmpu203.myapplication.R;
 import edu.vassar.cmpu203.myapplication.databinding.FragmentRoomProfileBinding;
 import edu.vassar.cmpu203.myapplication.model.Review;
 import edu.vassar.cmpu203.myapplication.model.Room;
+import edu.vassar.cmpu203.myapplication.persistence.FirestoreFacade;
+import edu.vassar.cmpu203.myapplication.persistence.IPersistenceFacade;
 
 /**
  * A simple {@link Fragment} subclass. It represents a fragment that displays detailed information
@@ -30,9 +34,9 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
     Listener listener;                          // observer to be notified of events of interest
     int position;
     Room room;
-
-    //private ViewPager2 viewPager2;
+    ArrayList<Review> reviews = new ArrayList<Review>();
     private PhotoPagerAdapter pagerAdapter;
+    IPersistenceFacade persFacade;
 
     /**
      * Construct a new RoomProfileFragment that provides listener, position and room details.
@@ -107,6 +111,24 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
 
         this.binding.description.setText(this.room.toString());
 
+        // initialize persistence facade
+        this.persFacade = new FirestoreFacade();
+
+        // load review list if one exists
+        this.persFacade.retrieveReviews(new IPersistenceFacade.Listener() {
+            @Override
+            public void onReviewsReceived(@NonNull ArrayList<Review> reviews) {
+                RoomProfileFragment.this.reviews = reviews;
+                room.setReviews(reviews);
+                RoomProfileFragment.this.updateReviewsDisplay(reviews);
+                // if we're in the ledger fragment, tell it to update itself
+                /*if (ControllerActivity.this.curFrag instanceof LedgerFragment)
+                    ((LedgerFragment)ControllerActivity.this.curFrag).updateLedgerDisplay(ledger);
+                 */
+            }
+        }, this.room);
+
+
         this.binding.recyclerView2.setLayoutManager(new LinearLayoutManager(this.getContext()));
         ReviewAdapter adapter = new ReviewAdapter(getContext().getApplicationContext(), room.getReviews());
         this.binding.recyclerView2.setAdapter(adapter);
@@ -124,6 +146,13 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
                 RoomProfileFragment.this.listener.onWriteReview();
             }
         });
+    }
+
+    @Override
+    public void updateReviewsDisplay(ArrayList<Review> reviews) {
+        this.binding.recyclerView2.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        ReviewAdapter adapter = new ReviewAdapter(getContext().getApplicationContext(), reviews);
+        this.binding.recyclerView2.setAdapter(adapter);
     }
 
 }

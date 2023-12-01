@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import edu.vassar.cmpu203.myapplication.model.Review;
+import edu.vassar.cmpu203.myapplication.model.Room;
 
 
 public class FirestoreFacade implements IPersistenceFacade{
@@ -26,16 +27,18 @@ public class FirestoreFacade implements IPersistenceFacade{
      * @param review the review to be saved
      */
     @Override
-    public void saveReview(@NonNull Review review) {
+    public void saveReview(@NonNull Review review, Room room) {
         CollectionReference cref = this.db.collection(REVIEWS_COLLECTION);
-        cref.add(review.toMap());
+        Map<String, Object> reviewOfRoom = review.toMap();
+        reviewOfRoom.put("roomNum", room.getRoomNum());
+        cref.add(reviewOfRoom);
     }
 
     @Override
-    public void retrieveReviews(@NonNull Listener listener) {
+    public void retrieveReviews(@NonNull Listener listener, Room room) {
         ArrayList<Review> reviews = new ArrayList<Review>();
 
-        Task<QuerySnapshot> task = this.db.collection(REVIEWS_COLLECTION).get();
+        Task<QuerySnapshot> task = this.db.collection(REVIEWS_COLLECTION).whereEqualTo("roomNum", room.getRoomNum()).get();
 
         task.addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override

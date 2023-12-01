@@ -19,7 +19,7 @@ public class PhotoPagerAdapter extends RecyclerView.Adapter<PhotoPagerAdapter.Ph
     private int[] imageResourceIds;
 
     /**
-     * A new Adapter with the provided context and array og image and resourced IDs.
+     * A new Adapter with the provided context and array of image resource IDs.
      * @param context in which the adapter being used.
      * @param imageResourceIds The array of image which is resources IDs to displays to the carousel.
      */
