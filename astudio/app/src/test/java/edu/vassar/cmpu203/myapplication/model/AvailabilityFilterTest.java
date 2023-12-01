@@ -9,11 +9,11 @@ public class AvailabilityFilterTest extends TestCase {
     public void testFilter() {
         ArrayList<Room> roomArrayList = new ArrayList<>();
 
-        Room availRoom1 = new Room(House.CUSHING,3,RoomType.DOUBLE,true);
+        Room availRoom1 = new Room("Cushing",3,"Double",true,303);
         roomArrayList.add(availRoom1);
-        Room availRoom2 = new Room(House.DAVISON,1,RoomType.SINGLE,true);
+        Room availRoom2 = new Room("Davison",1,"Single",true,101);
         roomArrayList.add(availRoom2);
-        Room notAvailRoom= new Room(House.NOYES,2,RoomType.TRIPLE,false);
+        Room notAvailRoom= new Room("Noyes",2,"Triple",false,202);
         roomArrayList.add(notAvailRoom);
 
         AvailabilityFilter af = new AvailabilityFilter(true);

@@ -9,18 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.TextView;
 
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import edu.vassar.cmpu203.myapplication.R;
 import edu.vassar.cmpu203.myapplication.databinding.FragmentSearchBinding;
-import edu.vassar.cmpu203.myapplication.model.House;
-import edu.vassar.cmpu203.myapplication.model.RoomType;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,9 +21,9 @@ public class SearchFragment extends Fragment implements ISearchView{
 
     private FragmentSearchBinding binding;
     Listener listener; // observer to be notified of events of interest
-    House name;
+    String name;
     int floor;
-    RoomType rt;
+    String rt;
     boolean avail;
 
     /**
@@ -67,11 +57,11 @@ public class SearchFragment extends Fragment implements ISearchView{
 
             @Override
             public void onClick(View v) {
-                String name = SearchFragment.this.binding.houseSpinner.getSelectedItem().toString();
+                name = SearchFragment.this.binding.houseSpinner.getSelectedItem().toString();
                 String floorStr = SearchFragment.this.binding.floorSpinner.getSelectedItem().toString();
                 if (floorStr.equals("All Floors")) {floor = 0;}
                 else {floor = Integer.parseInt(floorStr);}
-                String rt = SearchFragment.this.binding.roomTypeSpinner.getSelectedItem().toString();
+                rt = SearchFragment.this.binding.roomTypeSpinner.getSelectedItem().toString();
                 String availStr = SearchFragment.this.binding.availabilitySpinner.getSelectedItem().toString();
                 avail = availStr.equals("Available rooms");
 

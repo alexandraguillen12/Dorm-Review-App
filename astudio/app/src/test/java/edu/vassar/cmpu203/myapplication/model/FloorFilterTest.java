@@ -8,10 +8,10 @@ public class FloorFilterTest extends TestCase {
     public void testFilter() {
         ArrayList<Room> roomArrayList = new ArrayList<>();
 
-        roomArrayList.add(new Room(House.CUSHING,3,RoomType.DOUBLE,true));
-        Room floor1Room = new Room(House.DAVISON,1,RoomType.SINGLE,true);
+        roomArrayList.add(new Room("Cushing",3,"Double",true,303));
+        Room floor1Room = new Room("Davison",1,"Single",true,101);
         roomArrayList.add(floor1Room);
-        Room floor2Room= new Room(House.NOYES,2,RoomType.TRIPLE,true);
+        Room floor2Room= new Room("Noyes",2,"Triple",true,202);
         roomArrayList.add(floor2Room);
 
         FloorFilter ff = new FloorFilter(1);

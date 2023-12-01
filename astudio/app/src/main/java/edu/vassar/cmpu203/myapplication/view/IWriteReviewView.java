@@ -1,8 +1,5 @@
 package edu.vassar.cmpu203.myapplication.view;
 
-import edu.vassar.cmpu203.myapplication.model.House;
-import edu.vassar.cmpu203.myapplication.model.RoomType;
-
 public interface IWriteReviewView {
     /**
      * Interface that classes interested in being notified of events happening

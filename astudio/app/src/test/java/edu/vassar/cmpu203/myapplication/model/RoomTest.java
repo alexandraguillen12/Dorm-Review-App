@@ -10,31 +10,31 @@ public class RoomTest extends TestCase {
 
     @Test
     public void testGetHouse() {
-        Room r = new Room(House.MAIN, 1, RoomType.SINGLE,true);
-        assertEquals(House.MAIN, r.getHouse());
+        Room r = new Room("Main", 1, "Single",true,101);
+        assertEquals("Main", r.getHouse());
     }
 
     @Test
     public void testGetFloor() {
-        Room r = new Room(House.MAIN, 1, RoomType.SINGLE,true);
+        Room r = new Room("Main", 1, "Single",true,101);
         assertEquals(1, r.getFloor());
     }
 
     @Test
     public void testGetRoomType() {
-        Room r = new Room(House.MAIN, 1, RoomType.SINGLE,true);
-        assertEquals(RoomType.SINGLE, r.getRoomType());
+        Room r = new Room("Main", 1, "Single",true,101);
+        assertEquals("Single", r.getRoomType());
     }
 
     @Test
     public void testGetAvailability() {
-        Room r = new Room(House.MAIN, 1, RoomType.SINGLE,true);
+        Room r = new Room("Main", 1, "Single",true,101);
         assertTrue(r.getAvailability());
     }
 
     @Test
     public void testAddReviews() {
-        Room r = new Room(House.MAIN, 1, RoomType.SINGLE,true);
+        Room r = new Room("Main", 1, "Single",true,101);
         Review emptyReview = new Review("","");
         Review exampleReview = new Review("headline", "review");
         r.addReviews(emptyReview);
@@ -49,7 +49,7 @@ public class RoomTest extends TestCase {
 
     @Test
     public void testTestToString() {
-        Room r = new Room(House.MAIN, 1, RoomType.SINGLE,true);
+        Room r = new Room("Main", 1, "Single",true,101);
         assertEquals("Main House, Floor 1, Single, available", r.toString());
     }
 }

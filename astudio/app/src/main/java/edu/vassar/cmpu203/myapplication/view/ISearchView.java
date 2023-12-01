@@ -1,10 +1,5 @@
 package edu.vassar.cmpu203.myapplication.view;
 
-import android.view.View;
-
-import edu.vassar.cmpu203.myapplication.model.House;
-import edu.vassar.cmpu203.myapplication.model.RoomType;
-
 public interface ISearchView {
 
 

@@ -4,9 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
-import android.util.Log;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -14,8 +11,6 @@ import edu.vassar.cmpu203.myapplication.R;
 
 import edu.vassar.cmpu203.myapplication.model.Review;
 import edu.vassar.cmpu203.myapplication.model.Room;
-import edu.vassar.cmpu203.myapplication.model.House;
-import edu.vassar.cmpu203.myapplication.model.RoomType;
 import edu.vassar.cmpu203.myapplication.model.Search;
 import edu.vassar.cmpu203.myapplication.persistence.FirestoreFacade;
 import edu.vassar.cmpu203.myapplication.persistence.IPersistenceFacade;
@@ -26,7 +21,6 @@ import edu.vassar.cmpu203.myapplication.view.ISearchView;
 import edu.vassar.cmpu203.myapplication.view.IMainView;
 import edu.vassar.cmpu203.myapplication.view.IWriteReviewView;
 import edu.vassar.cmpu203.myapplication.view.MainView;
-import edu.vassar.cmpu203.myapplication.view.NoResultsFragment;
 import edu.vassar.cmpu203.myapplication.view.RoomProfileFragment;
 import edu.vassar.cmpu203.myapplication.view.RoomSelectionFragment;
 import edu.vassar.cmpu203.myapplication.view.SearchFragment;

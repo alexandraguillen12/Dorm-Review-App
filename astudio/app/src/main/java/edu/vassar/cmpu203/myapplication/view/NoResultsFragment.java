@@ -11,11 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import edu.vassar.cmpu203.myapplication.R;
 import edu.vassar.cmpu203.myapplication.databinding.FragmentNoResultsBinding;
-import edu.vassar.cmpu203.myapplication.databinding.FragmentSearchBinding;
-import edu.vassar.cmpu203.myapplication.model.House;
-import edu.vassar.cmpu203.myapplication.model.RoomType;
 
 /**
  * A simple {@link Fragment} subclass.
