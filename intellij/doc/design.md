@@ -5,7 +5,8 @@
 ```plantuml
 @startuml
 
-class Room
+class Room 
+Review <|-- Room
 Room : House
 Room : Floor : Integer
 Room : RoomType
@@ -14,6 +15,10 @@ Room : getHouse() : House
 Room : getFloor() : Integer
 Room : getType() : RoomType
 Room : getAvailability() : Boolean
+
+class FireStore 
+Review <|-- FireStore
+Ipersistance <|-- FireStore
 
 
 class RoomLibrary
@@ -46,10 +51,47 @@ RoomType : TWO_ROOM_TRIPLE
 interface Filter
 Filter : filter(Set<Room>) : Set<Room>
 
+interface Ipersistance
+Ipersistance <|-- Controller
+
+interface ISearchView
+ISearchView <|-- Controller
+ISearchView <|-- SearchFragment 
+
+interface IRoomSelectionView
+IRoomSelectionView <|-- Controller
+RoomSelectionFragment <|-- IRoomSelectionView 
+MyAdapter <|-- RoomSelectionFragment
+MyReviewHolder <|-- MyAdapter
+
+interface IRoomProfileView
+IRoomProfileView <|-- Controller
+IRoomProfileView <|-- RoomProfileFragment
+PhotoPagerAdapter <|-- RoomProfileFragment
+
+interface IWriteReview 
+IWriteReview <|-- Controller
+IWriteReview <|-- WriteReviewFragment
+ReviewAdapter <|-- WriteReviewFragment
+
+interface IManinView
+IManinView <|-- Controller
+
 class HouseFilter
 Filter <|.. HouseFilter
 HouseFilter : name : House
 HouseFilter : filter(Set<Room>) : Set<Room>
+
+
+class FloorFilter 
+FloorFilter <|-- Search 
+RoomTypeFilter <|-- Search
+AvailabilityFilter <|-- Search
+HouseFilter <|-- Search
+RoomLibrary <|-- Search
+Search <|-- Controller
+Room <|-- Controller
+FireStore <|-- Controller
 
 @enduml
 ```
