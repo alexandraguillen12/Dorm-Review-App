@@ -111,7 +111,8 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
 
         this.binding.description.setText(this.room.toString());
 
-        this.binding.avgRatingBar.setRating(getAvgRating(this.reviews));
+        this.binding.avgRatingBar.setRating(getAvgRating(room.getReviews()));
+        this.binding.avgRatingBar.setIsIndicator(true);
 
         // initialize persistence facade
         this.persFacade = new FirestoreFacade();
@@ -148,6 +149,7 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
 
     @Override
     public void updateReviewsDisplay(ArrayList<Review> reviews) {
+        this.binding.avgRatingBar.setRating(getAvgRating(reviews));
         this.binding.recyclerView2.setLayoutManager(new LinearLayoutManager(this.getContext()));
         ReviewAdapter adapter = new ReviewAdapter(getContext().getApplicationContext(), reviews);
         this.binding.recyclerView2.setAdapter(adapter);
