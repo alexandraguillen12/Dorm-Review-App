@@ -78,6 +78,9 @@ public class WriteReviewFragment extends Fragment implements IWriteReviewView {
         this.binding.addReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // retrieves rating
+                final Float ratingNum = WriteReviewFragment.this.binding.simpleRatingBar.getRating();
+
                 // retrieves headline
                 final Editable headlineEditable = WriteReviewFragment.this.binding.headlineInput.getText();
                 final String headlineStr = headlineEditable.toString();
@@ -94,7 +97,7 @@ public class WriteReviewFragment extends Fragment implements IWriteReviewView {
                 }
 
                 // notify listener (controller)
-                WriteReviewFragment.this.listener.onAddedReview(headlineStr, writtenReviewStr, WriteReviewFragment.this);
+                WriteReviewFragment.this.listener.onAddedReview(ratingNum, headlineStr, writtenReviewStr, WriteReviewFragment.this);
                 WriteReviewFragment.this.listener.onReviewDone();
             }
         });

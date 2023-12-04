@@ -115,8 +115,8 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
     }
 
     @Override
-    public void onAddedReview(String headline, String reviewStr, IWriteReviewView view){
-        Review curReview = new Review(headline, reviewStr);
+    public void onAddedReview(Float ratingNum, String headline, String reviewStr, IWriteReviewView view){
+        Review curReview = new Review(ratingNum, headline, reviewStr);
         this.curRoom.addReviews(curReview);
         //save review to underlying persistence storage
         this.persFacade.saveReview(curReview, curRoom);

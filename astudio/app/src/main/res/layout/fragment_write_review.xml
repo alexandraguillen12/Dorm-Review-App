@@ -20,11 +20,32 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/headlineTitle"
+        android:id="@+id/ratingTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/writeReviewText"
         android:layout_marginTop="30dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/add_rating"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+    <RatingBar
+        android:id="@+id/simpleRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ratingTitle"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/headlineTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/simpleRatingBar"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:text="@string/add_headline"

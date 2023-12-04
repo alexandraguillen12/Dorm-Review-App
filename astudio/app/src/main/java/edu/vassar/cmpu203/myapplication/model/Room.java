@@ -57,12 +57,12 @@ public class Room {
         String str = "";
         String houseStr = this.house;
         houseStr = houseStr.charAt(0) + houseStr.substring(1).toLowerCase() + " House";
-        str += houseStr + ", Floor " + this.floor + ", ";
+        str += houseStr + " | Floor " + this.floor + " | ";
         String rtStr = this.roomType;
         rtStr = rtStr.charAt(0) + rtStr.substring(1).toLowerCase();
-        str += rtStr + ", ";
-        if (this.availability) {str += "available";}
-        else {str += "not available";}
+        str += rtStr + " | ";
+        if (this.availability) {str += "Available";}
+        else {str += "Not available";}
         return str;
     };
 

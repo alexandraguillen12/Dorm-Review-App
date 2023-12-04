@@ -41,8 +41,15 @@ public class RoomLibrary {
             new Room("Jewett",8, "Single", true, 810),
             new Room("Jewett",8, "Single", true, 841),
             new Room("Jewett",8, "Single", true, 836),
-            new Room("Jewett",8, "Single", true, 821),
-            new Room("Jewett",8, "Single", true, 816)};
+            new Room("Jewett",8, "Single", false, 821),
+            new Room("Jewett",8, "Single", false, 816),
+
+            new Room("Lathrop",2, "Single", false, 201),
+            new Room("Jewett",8, "Single", false, 810),
+            new Room("Cushing",2, "Single", false, 242),
+            new Room("Strong",4, "Double", false, 420),
+            new Room("Davison",3, "Triple", false, 313),
+            new Room("Raymond",1, "Single", false, 116)};
 
 
     /*public void addRoom(House name, int floor, RoomType rt, boolean availability){

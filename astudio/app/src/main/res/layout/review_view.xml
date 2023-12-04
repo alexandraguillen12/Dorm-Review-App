@@ -3,10 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <RatingBar
+        android:id="@+id/fixedRatingBar"
+        style = "?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="13dp" />
+
     <TextView
         android:id="@+id/headlineText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/fixedRatingBar"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:text="@string/headline"
@@ -18,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/headlineText"
-        android:layout_alignStart="@id/headlineText"
+        android:layout_alignStart="@id/fixedRatingBar"
         android:text="@string/review" />
 
     <LinearLayout

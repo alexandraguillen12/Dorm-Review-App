@@ -10,7 +10,7 @@ public interface IWriteReviewView {
         /**
          * Called when the user is done writing a headline and review.
          */
-        void onAddedReview(String headline, String reviewStr, IWriteReviewView view);
+        void onAddedReview(Float ratingNum, String headline, String reviewStr, IWriteReviewView view);
 
         /**
          * Called when the user is ready to add the review.

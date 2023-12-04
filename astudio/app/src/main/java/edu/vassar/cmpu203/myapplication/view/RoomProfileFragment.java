@@ -111,6 +111,8 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
 
         this.binding.description.setText(this.room.toString());
 
+        this.binding.avgRatingBar.setRating(getAvgRating(this.reviews));
+
         // initialize persistence facade
         this.persFacade = new FirestoreFacade();
 
@@ -121,10 +123,6 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
                 RoomProfileFragment.this.reviews = reviews;
                 room.setReviews(reviews);
                 RoomProfileFragment.this.updateReviewsDisplay(reviews);
-                // if we're in the ledger fragment, tell it to update itself
-                /*if (ControllerActivity.this.curFrag instanceof LedgerFragment)
-                    ((LedgerFragment)ControllerActivity.this.curFrag).updateLedgerDisplay(ledger);
-                 */
             }
         }, this.room);
 
@@ -153,6 +151,14 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
         this.binding.recyclerView2.setLayoutManager(new LinearLayoutManager(this.getContext()));
         ReviewAdapter adapter = new ReviewAdapter(getContext().getApplicationContext(), reviews);
         this.binding.recyclerView2.setAdapter(adapter);
+    }
+
+    public float getAvgRating(ArrayList<Review> reviews) {
+        float total = 0;
+        for (Review r : reviews) {
+            total += r.getRatingNum();
+        }
+        return (total / reviews.size());
     }
 
 }

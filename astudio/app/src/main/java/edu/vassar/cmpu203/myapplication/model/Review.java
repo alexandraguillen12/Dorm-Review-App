@@ -3,21 +3,24 @@ package edu.vassar.cmpu203.myapplication.model;
 import androidx.annotation.NonNull;
 
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 public class Review {
 
+    private static final String RATING = "rating";
     private static final String HEADLINE = "headline";
-    private static final String REVIEWSTR = "reviewstr";
+    private static final String REVIEW_STR = "reviewStr";
+    float ratingNum;
     String headline;
     String reviewStr;
-    public Review(String headline, String reviewStr){
+    public Review(Float rating, String headline, String reviewStr){
+        this.ratingNum = rating;
         this.headline = headline;
         this.reviewStr = reviewStr;
     }
 
+    public float getRatingNum() { return ratingNum; }
+    
     public String getHeadline() {
         return headline;
     }
@@ -34,8 +37,9 @@ public class Review {
     @NonNull
     public Map<String, Object> toMap(){
         Map<String, Object> map = new HashMap<>();
+        map.put(RATING, this.ratingNum);
         map.put(HEADLINE, this.headline);
-        map.put(REVIEWSTR, this.reviewStr);
+        map.put(REVIEW_STR, this.reviewStr);
 
         return map;
     }
@@ -48,10 +52,11 @@ public class Review {
      */
     @NonNull
     public static Review fromMap(@NonNull Map<String,Object> map){
+        float rating = Float.parseFloat(map.get(RATING).toString());
         String headline = (String) map.get(HEADLINE);
-        String reviewStr = (String) map.get(REVIEWSTR);
+        String reviewStr = (String) map.get(REVIEW_STR);
 
-        return new Review(headline, reviewStr);
+        return new Review(rating, headline, reviewStr);
     }
 
 }

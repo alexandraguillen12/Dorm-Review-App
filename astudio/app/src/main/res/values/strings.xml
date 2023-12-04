@@ -72,6 +72,7 @@
 
     <!-- for write review screen -->
     <string name="write_review_title">Write Review</string>
+    <string name="add_rating">Add rating</string>
     <string name="add_headline">Add headline</string>
     <string name="add_written_review">Add written review</string>
     <string name="add_review">Add review</string>
