@@ -17,6 +17,9 @@ Room : getType() : RoomType
 Room : getAvailability() : Boolean
 
 class FireStore 
+Filter <|.. HouseFilter
+FireStore : name : saveReview
+FireStore : filter(Set<Room>) : Set<Room>
 Review <|-- FireStore
 Ipersistance <|-- FireStore
 
@@ -25,28 +28,6 @@ class RoomLibrary
 Room <|-- RoomLibrary
 RoomLibrary : rooms : ArrayList<Room>
 RoomLibrary : size()
-
-enum House
-Room "*" -- "1" House
-House : MAIN
-House : STRONG
-House : RAYMOND
-House : DAVISON
-House : LATHROP
-House : JEWETT
-House : JOSSELYN
-House : CUSHING
-House : NOYES
-
-enum RoomType
-Room "*" -- "1" RoomType
-RoomType : SINGLE
-RoomType : DOUBLE
-RoomType : TRIPLE
-RoomType : QUAD
-RoomType : SUITE
-RoomType : TWO_ROOM_DOUBLE
-RoomType : TWO_ROOM_TRIPLE
 
 interface Filter
 Filter : filter(Set<Room>) : Set<Room>
@@ -61,8 +42,16 @@ ISearchView <|-- SearchFragment
 interface IRoomSelectionView
 IRoomSelectionView <|-- Controller
 RoomSelectionFragment <|-- IRoomSelectionView 
+RoomSelectionFragment : RoomSelectionFragment(curResults, listener)
+RoomSelectionFragment : onViewCreated(view, savedInstanceState)
+RoomSelectionFragment : onClick(view, onNewSearch)
 MyAdapter <|-- RoomSelectionFragment
-MyReviewHolder <|-- MyAdapter
+MyAdapter : MyAdapter(context, Set<Room> rooms)
+MyAdapter : SetOnItemClickListener(OnItemClickListener, listener)
+MyAdapter : onBindViewHolder(MyViewHolder holder, position)
+
+MyViewHolder <|-- MyAdapter
+MyViewHolder : MyViewHolder(view, itemView)
 
 interface IRoomProfileView
 IRoomProfileView <|-- Controller
@@ -85,9 +74,13 @@ HouseFilter : filter(Set<Room>) : Set<Room>
 
 class FloorFilter 
 FloorFilter <|-- Search 
+Filter <|.. FloorFilter
 RoomTypeFilter <|-- Search
+Filter <|.. RoomTypeFilter
 AvailabilityFilter <|-- Search
+Filter <|.. AvailabilityFilter 
 HouseFilter <|-- Search
+
 RoomLibrary <|-- Search
 Search <|-- Controller
 Room <|-- Controller
@@ -99,16 +92,47 @@ FireStore <|-- Controller
 ```plantuml
 @startuml
 Student -> PosUI: Specify House Name 
+Student -> PosUI: Specify Floor
+Student -> PosUI: Specify roomType
+Student -> PosUI: Specify Availability
 PosUI --> Controller: Set Search Criteria HouseName  
-create HouseFilter 
+create HouseFilter
 Controller --> HouseFilter: create 
+PosUI --> Controller: set Search criteria Floor Number
+create FloorFilter 
+Controller --> FloorFilter
+PosUI --> Controller: set Search criteria room Type Filter
+create RoomTypeFilter 
+Controller --> RoomTypeFilter 
+PosUI --> Controller: set Search criteria Availability
+create AvailabilityFilter 
+Controller --> AvailabilityFilter
 Controller --> RoomLibrary: Search(filterSet)
 RoomLibrary --> RoomLibrary: do search  
 RoomLibrary --> Controller: return roomList  
 Controller --> PosUI: display(roomList) 
 PosUI --> Student: Show results 
+Student -> PosUI: View Room 
 Student --> PosUI: Press Room 
 PosUI --> Controller: selectRoom(id)
-
+PosUI --> Controller: Set Rating marks
+create WriteReview
+Controller --> WriteReview
+Student --> PosUI: WriteReview
+Student --> PosUI: Press Button 
+PosUI --> Controller: Set Rating marks 
+Controller --> RoomLibrary: Choosing the rating value 
+PosUI --> Controller: Adding headline
+Controller --> RoomLibrary: Writing down the topic
+PosUI --> Controller: Adding review 
+Controller --> RoomLibrary: Writing down the review 
+RoomLibrary --> RoomLibrary: AddReview
+RoomLibrary --> Controller: return WriteReview
+Controller --> PosUI: display WriteReview
+PosUI--> Student: ShowResults
+Student --> PosUI: Press Button
+PosUI --> Controller: Done with the review
+Controller --> RoomLibrary: going back to previous page
+RoomLibrary --> RoomLibrary: back
 @enduml
 ```
