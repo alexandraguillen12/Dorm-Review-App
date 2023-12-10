@@ -41,6 +41,7 @@ ISearchView <|-- SearchFragment
 
 interface IRoomSelectionView
 IRoomSelectionView <|-- Controller
+IRoomSelectionView : onSelectionDone(position)
 RoomSelectionFragment <|-- IRoomSelectionView 
 RoomSelectionFragment : RoomSelectionFragment(curResults, listener)
 RoomSelectionFragment : onViewCreated(view, savedInstanceState)
@@ -65,6 +66,8 @@ ReviewAdapter <|-- WriteReviewFragment
 
 interface IManinView
 IManinView <|-- Controller
+IManinView : getRootView()
+IManinView : displayFragment(fragment, reversible, name)
 
 class HouseFilter
 Filter <|.. HouseFilter
@@ -74,15 +77,24 @@ HouseFilter : filter(Set<Room>) : Set<Room>
 
 class FloorFilter 
 FloorFilter <|-- Search 
+FloorFilter : FloorFilter(floor)
+FloorFilter : filter(ArrayList<Room> roomList) : Set(<filteredList>)
 Filter <|.. FloorFilter
 RoomTypeFilter <|-- Search
+RoomTypeFilter : RoomTypeFilter(type)
+RoomTypeFilter : filter(ArrayList<Room> roomList) : (Set<filteredList>)
 Filter <|.. RoomTypeFilter
 AvailabilityFilter <|-- Search
+AvailabilityFilter : AvailabilityFilter(boolean available)
+AvailabilityFilter : filter(ArrayList<Room> roomList) : (Set<filteredList>)
 Filter <|.. AvailabilityFilter 
 HouseFilter <|-- Search
 
 RoomLibrary <|-- Search
 Search <|-- Controller
+Search : addFilters(name, floor, type, availability)
+Search : getFilterCount(filterSet.size)
+Search : filter(ArrayList<Room> roomList) : (Set<filteredList>)
 Room <|-- Controller
 FireStore <|-- Controller
 
@@ -95,16 +107,16 @@ Student -> PosUI: Specify House Name
 Student -> PosUI: Specify Floor
 Student -> PosUI: Specify roomType
 Student -> PosUI: Specify Availability
-PosUI --> Controller: Set Search Criteria HouseName  
+PosUI --> Controller: SetSearchCriteria (HouseName) 
 create HouseFilter
 Controller --> HouseFilter: create 
-PosUI --> Controller: set Search criteria Floor Number
+PosUI --> Controller: setSearchCriteria (FloorNumber)
 create FloorFilter 
 Controller --> FloorFilter
-PosUI --> Controller: set Search criteria room Type Filter
+PosUI --> Controller: setSearchCriteria (roomTypeFilter)
 create RoomTypeFilter 
 Controller --> RoomTypeFilter 
-PosUI --> Controller: set Search criteria Availability
+PosUI --> Controller: setSearchCriteria (Availability)
 create AvailabilityFilter 
 Controller --> AvailabilityFilter
 Controller --> RoomLibrary: Search(filterSet)
