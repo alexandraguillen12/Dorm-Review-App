@@ -74,7 +74,6 @@ Filter <|.. HouseFilter
 HouseFilter : name : House
 HouseFilter : filter(Set<Room>) : Set<Room>
 
-
 class FloorFilter 
 FloorFilter <|-- Search 
 FloorFilter : FloorFilter(floor)
