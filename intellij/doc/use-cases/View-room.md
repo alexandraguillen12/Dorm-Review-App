@@ -8,7 +8,8 @@ __Student__: Wants to view rooms, being able to write a review, choose the favou
 
 _Room Information_:
 
-* Cashier is identified and authenticated.
+* Student is a Vassar student.
+* Student has already done a search and has selected a room to view.
 
 ## 3. Postconditions
 
