@@ -33,6 +33,12 @@ android {
     }
 }
 
+android {
+    testOptions {
+        animationsDisabled = true
+    }
+}
+
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
