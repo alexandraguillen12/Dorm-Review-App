@@ -11,6 +11,11 @@ import java.util.Set;
 
 import javax.xml.transform.Result;
 
+/**
+ *  The SearchTest class is a JUnit case for the Search class, specifically testing the behavior
+ *  of its addFilters and filter methods.
+ */
+
 public class SearchTest extends TestCase {
 
     /**
@@ -32,8 +37,14 @@ public class SearchTest extends TestCase {
         Assert.assertEquals(s3.getFilterCount(), 2);
 
     }
+
+    /**
+     * Tests the behavior of the filter in the Search class.
+     */
     @Test
     public void testFilter() {
+
+        // Create a Search instance and a list of rooms for testing
         Search s = new Search();
 
         ArrayList<Room> roomList = new ArrayList<Room>();
