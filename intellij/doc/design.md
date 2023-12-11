@@ -162,7 +162,7 @@ Student -> SearchFragment: Specify Floor
 Student -> SearchFragment: Specify roomType
 Student -> SearchFragment: Specify Availability
 SearchFragment -> MainActivity: OnAddedFilter(House, Floor, roomType, Availability)
-SearchFragment -> MainActivity: SearchDorm
+SearchFragment -> MainActivity: SearchDone()
 MainActivity -> Search: addFilters 
 create HouseFilter
 Search --> HouseFilter: create 
