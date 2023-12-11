@@ -16,9 +16,15 @@ import java.util.Map;
 import edu.vassar.cmpu203.myapplication.model.Review;
 import edu.vassar.cmpu203.myapplication.model.Room;
 
-
+/**
+ * The FireStoreFacade class implements the IPersistanceFacade interface and provides methods for
+ * interacting with FireStore as th underlying persistance solution.
+ */
 public class FirestoreFacade implements IPersistenceFacade{
 
+    /**
+     * The name of the FireStore collection used for storing reviews.
+     */
     private static final String REVIEWS_COLLECTION = "reviews";
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -33,6 +39,12 @@ public class FirestoreFacade implements IPersistenceFacade{
         reviewOfRoom.put("roomNum", room.getRoomNum());
         cref.add(reviewOfRoom);
     }
+
+    /**
+     * Retrieves reviews associated itwh a specific room from the Firestore database notifies the listener.
+     * @param listener the observer to be notified of query result.
+     * @param room The room that the reviews should be retrieved.
+     */
 
     @Override
     public void retrieveReviews(@NonNull Listener listener, Room room) {

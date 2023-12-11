@@ -32,14 +32,7 @@ public class Controller {
             System.out.println("Enter house: ");
             String input = scanner.nextLine();
             input = input.toUpperCase();
-            /*
-                if (!input.equals("MAIN") && !input.equals("STRONG") && !input.equals("RAYMOND") && !input.equals("DAVISON")
-                        && !input.equals("LATHROP") && !input.equals("JEWETT") && !input.equals("JOSSELYN")
-                        && !input.equals("CUSHING") && !input.equals("NOYES") && !input.equals("ALL")
-                        && !input.equals("EXIT")) {
-                    System.out.println("Invalid input. Only listed ones supported.");
-                } else continue;
-            */
+
             if (input.equals("EXIT")) {
                 break;
             }
