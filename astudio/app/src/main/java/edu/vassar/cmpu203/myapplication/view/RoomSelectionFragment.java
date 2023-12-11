@@ -62,13 +62,22 @@ public class RoomSelectionFragment extends Fragment implements IRoomSelectionVie
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.binding.recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        MyAdapter adapter = new MyAdapter(getContext().getApplicationContext(), curResults);
-        this.binding.recyclerView.setAdapter(adapter);
+        if (this.curResults.isEmpty()) {
+            this.binding.scrollView.setVisibility(View.GONE);
+            this.binding.noResults.setVisibility(View.VISIBLE);
+        }
+        else {
+            this.binding.noResults.setVisibility(View.GONE);
+            this.binding.scrollView.setVisibility(View.VISIBLE);
 
-        adapter.setOnItemClickListener(position -> {
-            RoomSelectionFragment.this.listener.onSelectionDone(position);
-        });
+            this.binding.recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+            MyAdapter adapter = new MyAdapter(getContext().getApplicationContext(), curResults);
+            this.binding.recyclerView.setAdapter(adapter);
+
+            adapter.setOnItemClickListener(position -> {
+                RoomSelectionFragment.this.listener.onSelectionDone(position);
+            });
+        }
 
 
         this.binding.newSearchButton.setOnClickListener(new View.OnClickListener() {

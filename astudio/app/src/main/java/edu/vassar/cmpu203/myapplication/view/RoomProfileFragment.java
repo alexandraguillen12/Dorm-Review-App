@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -150,9 +151,19 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
     @Override
     public void updateReviewsDisplay(ArrayList<Review> reviews) {
         this.binding.avgRatingBar.setRating(getAvgRating(reviews));
-        this.binding.recyclerView2.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        ReviewAdapter adapter = new ReviewAdapter(getContext().getApplicationContext(), reviews);
-        this.binding.recyclerView2.setAdapter(adapter);
+
+        if (reviews.isEmpty()) {
+            this.binding.scrollView2.setVisibility(View.GONE);
+            this.binding.reviewsIsEmpty.setVisibility(View.VISIBLE);
+        }
+        else {
+            this.binding.reviewsIsEmpty.setVisibility(View.GONE);
+            this.binding.scrollView2.setVisibility(View.VISIBLE);
+
+            this.binding.recyclerView2.setLayoutManager(new LinearLayoutManager(this.getContext()));
+            ReviewAdapter adapter = new ReviewAdapter(getContext().getApplicationContext(), reviews);
+            this.binding.recyclerView2.setAdapter(adapter);
+        }
     }
 
     public float getAvgRating(ArrayList<Review> reviews) {
