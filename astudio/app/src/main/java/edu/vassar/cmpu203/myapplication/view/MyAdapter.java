@@ -62,7 +62,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         this.binding = ItemViewBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new MyViewHolder(this.binding);
-        //return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view, parent, false));
     }
 
     /**

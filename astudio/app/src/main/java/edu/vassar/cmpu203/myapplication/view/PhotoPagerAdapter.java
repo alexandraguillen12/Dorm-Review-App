@@ -80,7 +80,6 @@ public class PhotoPagerAdapter extends RecyclerView.Adapter<PhotoPagerAdapter.Ph
         PhotoViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = PhotoPagerAdapter.this.binding.imageView;
-            //imageView = itemView.findViewById(R.id.imageView);
         }
 
         void bind(int position) {

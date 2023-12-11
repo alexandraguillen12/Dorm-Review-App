@@ -18,8 +18,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     //private ItemViewBinding binding;
 
     /**
-     * Constructs a new MyViewHolder with the provided item view.
-     * @param binding This is representing a single item in RecyclerView.
+     * Constructs a new MyViewHolder with the provided item view binding.
+     * @param binding This is representing a binding to a single item in RecyclerView.
      */
     public MyViewHolder(@NonNull ItemViewBinding binding) {
         super(binding.getRoot());

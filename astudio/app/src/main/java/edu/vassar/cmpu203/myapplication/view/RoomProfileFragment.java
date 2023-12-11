@@ -147,10 +147,15 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
         });
     }
 
+    /**
+     * Updates the display of the review list
+     * @param reviews the review list to be displayed
+     */
     @Override
     public void updateReviewsDisplay(ArrayList<Review> reviews) {
         this.binding.avgRatingBar.setRating(getAvgRating(reviews));
 
+        // displays reviews for room. If review list is empty, shows "No reviews yet!"
         if (reviews.isEmpty()) {
             this.binding.scrollView2.setVisibility(View.GONE);
             this.binding.reviewsIsEmpty.setVisibility(View.VISIBLE);
@@ -165,6 +170,11 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
         }
     }
 
+    /**
+     * Returns the average rating from the review list.
+     * @param reviews the review list for the room
+     * @return the average rating for the room
+     */
     public float getAvgRating(ArrayList<Review> reviews) {
         float total = 0;
         for (Review r : reviews) {

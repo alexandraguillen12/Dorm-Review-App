@@ -72,13 +72,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.RViewHolde
             fixedRatingView = ReviewAdapter.this.binding.fixedRatingBar;
             headlineView = ReviewAdapter.this.binding.headlineText;
             reviewView = ReviewAdapter.this.binding.reviewText;
-
-            /*
-            fixedRatingView = itemView.findViewById(R.id.fixedRatingBar);
-            headlineView = itemView.findViewById(R.id.headlineText);
-            reviewView = itemView.findViewById(R.id.reviewText);
-
-             */
         }
 
     }
