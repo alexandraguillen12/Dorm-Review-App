@@ -105,54 +105,6 @@ FireStore <|-- MainActivity
 @enduml
 ```
 
-```plantuml
-@startuml
-actor Student
-Student -> SearchFragment: Specify House Name 
-Student -> SearchFragment: Specify Floor
-Student -> SearchFragment: Specify roomType
-Student -> SearchFragment: Specify Availability
-SearchFragment --> Controller: SetSearchCriteria (HouseName) 
-create HouseFilter
-Controller --> HouseFilter: create 
-SearchFragment --> Controller: setSearchCriteria (FloorNumber)
-create FloorFilter 
-Controller --> FloorFilter
-SearchFragment --> Controller: setSearchCriteria (roomTypeFilter)
-create RoomTypeFilter 
-Controller --> RoomTypeFilter 
-SearchFragment --> Controller: setSearchCriteria (Availability)
-create AvailabilityFilter 
-Controller --> AvailabilityFilter
-Controller --> RoomLibrary: Search(filterSet)
-RoomLibrary --> RoomLibrary: do search  
-RoomLibrary --> Controller: return roomList  
-Controller --> SearchFragment: display(roomList) 
-SearchFragment --> Student: Show results 
-Student -> SearchFragment: View Room 
-Student --> SearchFragment: Press Room 
-SearchFragment --> Controller: selectRoom(id)
-SearchFragment --> Controller: Set Rating marks
-create WriteReview
-Controller --> WriteReview
-Student --> SearchFragment: WriteReview
-Student --> SearchFragment: Press Button 
-SearchFragment--> Controller: Set Rating marks 
-Controller --> RoomLibrary: Choosing the rating value 
-SearchFragment --> Controller: Adding headline
-Controller --> RoomLibrary: Writing down the topic
-SearchFragment --> Controller: Adding review 
-Controller --> RoomLibrary: Writing down the review 
-RoomLibrary --> RoomLibrary: AddReview
-RoomLibrary --> Controller: return WriteReview
-Controller --> SearchFragment: display WriteReview
-SearchFragment--> Student: ShowResults
-Student --> SearchFragment: Press Button
-SearchFragment --> Controller: Done with the review
-Controller --> RoomLibrary: going back to previous page
-RoomLibrary --> RoomLibrary: back
-@enduml
-```
 
 ```plantuml
 @startuml
@@ -177,8 +129,31 @@ Search --> Search: do Search
 Search --> MainActivity: return results 
 MainActivity --> RoomSelectionFragment: create
 RoomSelectionFragment --> Student: Display results 
+
+
+@enduml
+```
+
+```plantuml
+@startuml
+actor student
 Student --> RoomSelectionFragment: Select Room 
 RoomSelectionFragment --> MainActivity: onSelectionDone()
+MainActivity --> RoomProfileFragment: create 
+RoomProfileFragment --> Student: displayRoom 
+Student --> MainActivity: writeReview 
+MainActivity --> WriteReviewFragment: create
+Student --> WriteReviewFragment: AddRating
+Student --> WriteReviewFragment: AddHeadline
+Student --> WriteReviewFragment: SaveReview(Review) 
+WriteReviewFragment --> MainActivity: onAddedReview(ratingNum, headline, review)
+MainActivity --> Review: create
+MainActivity --> Room: addReviews(review)
+MainActivity --> IPersistanteFacade 
+WriteReviewFragment --> MainActivity: onReviewDone()
+MainActivity --> RoomProfileFragment: create
+RoomProfileFragment --> Student: displayUpdatedRoomProfileFragment 
+
 
 @enduml
 ```
