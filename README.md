@@ -1,8 +1,6 @@
 `# CMPU-203 F23 - Team 1I
 
 
-## **Note
-We haven't updated the class design diagrams and sequence diagrams yet (sorry!) but we will do it as soon as possible :)
 
 ## Name
 Dorm Review App
@@ -19,12 +17,15 @@ select another room, or you can go back and make another search.
 We want to add a feature to save rooms to Your Favorites so you fins the rooms you liked easily. We also want to improve 
 Write A Review feature so that users can add photos and a rating to their review.
 
+## Limitations
+
+You can't delete a review after you submit it and the availability can't be updated by the user. The fixes are possible, 
+but they required more time than we had.
 
 ## Authors and acknowledgment
 The authors are Alexandra Guillen and Hamida Rahimi. Shoutout to all the coaches and Rui for helping us make this app!
 
-
-
 ## Project status
-We are hanging in there.
+We cut back on some of the nice-to-have functionality like adding favorites and uploading pictures to fix what 
+we already had. So this is the final product.
 `
