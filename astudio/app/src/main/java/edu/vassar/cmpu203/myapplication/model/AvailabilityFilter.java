@@ -21,9 +21,8 @@ public class AvailabilityFilter implements Filter {
     /**
      * Filters the availability rooms based on the status.
      * @param roomList the list of the rooms to be filtered.
-     * @return Containing only the specified availability status.
+     * @return list containing only the specified availability status.
      */
-
     public ArrayList<Room> filter(ArrayList<Room> roomList){
         ArrayList<Room> filteredList = new ArrayList<Room>();
         for (Room r : roomList) {

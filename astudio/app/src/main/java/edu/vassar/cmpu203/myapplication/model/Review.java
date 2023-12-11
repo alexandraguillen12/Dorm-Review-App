@@ -5,6 +5,9 @@ import androidx.annotation.NonNull;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Represents a review that is written for a room.
+ */
 public class Review {
 
     private static final String RATING = "rating";
@@ -13,18 +16,38 @@ public class Review {
     float ratingNum;
     String headline;
     String reviewStr;
+
+    /**
+     * Constructor, initializes fields to values provided.
+     *
+     * @param rating the rating given for the room
+     * @param headline the headline for the review
+     * @param reviewStr the written review
+     */
     public Review(Float rating, String headline, String reviewStr){
         this.ratingNum = rating;
         this.headline = headline;
         this.reviewStr = reviewStr;
     }
 
+    /**
+     * Returns the rating number associated with the review.
+     * @return rating number associated with the review.
+     */
     public float getRatingNum() { return ratingNum; }
-    
+
+    /**
+     * Returns the headline associated with the review.
+     * @return headline associated with the review.
+     */
     public String getHeadline() {
         return headline;
     }
 
+    /**
+     * Returns the written review associated with the review.
+     * @return written review associated with the review.
+     */
     public String getReviewStr() {
         return reviewStr;
     }

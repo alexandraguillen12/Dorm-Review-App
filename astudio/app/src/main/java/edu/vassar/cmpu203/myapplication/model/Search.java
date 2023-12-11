@@ -61,9 +61,8 @@ public class Search {
         return roomList;
     }
 
-    /**
-     * Retrieves the Room Library so that we can apply the filters to it.
-     */
+
+    // Retrieves the Room Library so that we can apply the filters to it.
     ArrayList<Room> roomArrayList = roomLib.getRoomLibrary();
 
     /**

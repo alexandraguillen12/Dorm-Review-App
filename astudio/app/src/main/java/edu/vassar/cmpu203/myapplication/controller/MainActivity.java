@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
         IRoomSelectionView.Listener, IRoomProfileView.Listener, IWriteReviewView.Listener {
 
     Fragment curFrag; // keeps track of the current fragment being displayed
-    Search curSearch = new Search();
-    Room curRoom;
-    IMainView mainView;
+    Search curSearch = new Search(); // keeps track of the current search being done
+    Room curRoom; // keeps track of the current room being viewed
+    IMainView mainView; // a reference to the UI object
     IPersistenceFacade persFacade;
 
     /**
@@ -57,10 +57,18 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
         SearchFragment searchFragment = new SearchFragment(this);
         this.mainView.displayFragment(searchFragment, false, "search rooms");
 
-
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * Called when the user is done specifying a house, floor,
+     * room type, and availability to search for.
+     * @param name the house name
+     * @param floor the floor of the house
+     * @param rt the room type
+     * @param availability the availability
+     * @param view the view where the event originated
+     */
     @Override
     public void onAddedFilters(String name, int floor, String rt, boolean availability, ISearchView view) {
         this.curSearch.addFilters(name, floor, rt, availability);
@@ -78,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
 
     /**
      * Called when the user has completed the room selection for a specific position.
-     * @param position The position of the selected rooms.
+     * @param position The position of the selected room in the results list.
      */
     @Override
     public void onSelectionDone(int position) {
@@ -108,12 +116,22 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
         this.mainView.displayFragment(this.curFrag, false, "room selection");
     }
 
+    /**
+     * Called when the user wants to write a review.
+     */
     @Override
     public void onWriteReview(){
         this.curFrag = new WriteReviewFragment(this);
         this.mainView.displayFragment(this.curFrag, false, "write review");
     }
 
+    /**
+     * Called when user finishes writing their review and adds the review.
+     * @param ratingNum the rating out of five stars
+     * @param headline the headline of the review
+     * @param reviewStr the written review
+     * @param view the view where the event originated
+     */
     @Override
     public void onAddedReview(Float ratingNum, String headline, String reviewStr, IWriteReviewView view){
         Review curReview = new Review(ratingNum, headline, reviewStr);
@@ -122,12 +140,18 @@ public class MainActivity extends AppCompatActivity implements ISearchView.Liste
         this.persFacade.saveReview(curReview, curRoom);
     }
 
+    /**
+     * Called when the user is done writing their review.
+     */
     @Override
     public void onReviewDone(){
         this.curFrag = new RoomProfileFragment(this,curRoom);
         this.mainView.displayFragment(this.curFrag, false, "room profile");
     }
 
+    /**
+     * Called if the user decides not to write a review and go back to the room profile.
+     */
     @Override
     public void onGoBack(){
         this.curFrag = new RoomProfileFragment(this,curRoom);

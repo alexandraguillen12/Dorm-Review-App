@@ -14,7 +14,11 @@ public class RoomLibrary {
     public ArrayList<Room> rooms;
 
 
-    public int size = 12;
+    public int size = 25; // used to keep track of the number of rooms in room library
+
+    /**
+     * Empty constructor.
+     */
     public RoomLibrary(){
         this.rooms = new ArrayList<>();
     }
@@ -22,7 +26,6 @@ public class RoomLibrary {
     /**
      * Adds new room to the library with the specified parameters and the specified size.
      */
-
     Room[] roomArray = new Room[] {
             new Room("Main",3, "Single", true, 327),
             new Room("Strong",4, "Single", true, 403),
@@ -43,7 +46,6 @@ public class RoomLibrary {
             new Room("Jewett",8, "Single", true, 836),
             new Room("Jewett",8, "Single", false, 821),
             new Room("Jewett",8, "Single", false, 816),
-
             new Room("Lathrop",2, "Single", false, 201),
             new Room("Jewett",8, "Single", false, 810),
             new Room("Cushing",2, "Single", false, 242),
@@ -52,17 +54,15 @@ public class RoomLibrary {
             new Room("Raymond",1, "Single", false, 116)};
 
 
-    /*public void addRoom(House name, int floor, RoomType rt, boolean availability){
+    /*
+    public void addRoom(House name, int floor, RoomType rt, boolean availability){
         Room r = new Room(name, floor, rt, availability, );
         this.rooms.add(r);
         this.size ++;
     }
-
      */
 
     public ArrayList<Room> getRoomLibrary(){
-        //this.rooms = (ArrayList<Room>) Arrays.asList(roomList);
-
         this.rooms = new ArrayList<>();
         for (Room r : roomArray)
             this.rooms.add(r);
@@ -75,7 +75,6 @@ public class RoomLibrary {
      * and their detail
      * @return A formatting string representing the rooms in the library.
      */
-
     @Override
     @NonNull
     public String toString(){
