@@ -35,8 +35,8 @@ public class RoomTest extends TestCase {
     @Test
     public void testAddReviews() {
         Room r = new Room("Main", 1, "Single",true,101);
-        Review emptyReview = new Review("","");
-        Review exampleReview = new Review("headline", "review");
+        Review emptyReview = new Review(0.0f,"","");
+        Review exampleReview = new Review(5f,"headline", "review");
         r.addReviews(emptyReview);
         r.addReviews(exampleReview);
 
@@ -50,6 +50,6 @@ public class RoomTest extends TestCase {
     @Test
     public void testTestToString() {
         Room r = new Room("Main", 1, "Single",true,101);
-        assertEquals("Main House, Floor 1, Single, available", r.toString());
+        assertEquals("Main House | Floor 1 | Single | Available", r.toString());
     }
 }

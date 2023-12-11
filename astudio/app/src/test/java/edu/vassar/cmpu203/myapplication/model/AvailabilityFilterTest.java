@@ -28,6 +28,6 @@ public class AvailabilityFilterTest extends TestCase {
         ArrayList<Room> notAvailList = new ArrayList<Room>();
         notAvailList.add(notAvailRoom);
         assertEquals(notAvailList, results);
-        assertEquals(false, results.get(0).getAvailability());
+        assertFalse(results.get(0).getAvailability());
     }
 }

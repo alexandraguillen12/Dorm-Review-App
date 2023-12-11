@@ -102,6 +102,7 @@ FireStore <|-- Controller
 
 ```plantuml
 @startuml
+actor Student
 Student -> PosUI: Specify House Name 
 Student -> PosUI: Specify Floor
 Student -> PosUI: Specify roomType

@@ -13,8 +13,12 @@ import javax.xml.transform.Result;
 
 public class SearchTest extends TestCase {
 
+    /**
+     * Test's the behavior of Search's addFilter's() method.
+     * Since addLineItem() is a void method this has to be done by checking the size of the filterSet
+     */
     @Test
-    public void addFilters() {
+    public void testAddFilters() {
         Search s1 = new Search();
         s1.addFilters("All Houses", 0, "All Room Types", false);
         Assert.assertEquals(s1.getFilterCount(), 0);
@@ -39,8 +43,8 @@ public class SearchTest extends TestCase {
         roomList.add(new Room("Cushing",3,"Single",true,303));
 
         Set<Filter> filterSet = new HashSet<>();
-        filterSet.add(new RoomTypeFilter("Single"));
 
+        filterSet.add(new RoomTypeFilter("Single"));
         ArrayList<Room> results = s.filter(roomList,filterSet);
         Assert.assertEquals(roomList, results);
 
@@ -49,18 +53,11 @@ public class SearchTest extends TestCase {
         ArrayList<Room> jewettRoomList = new ArrayList<Room>();
         jewettRoomList.add(jewettRoom);
         Assert.assertEquals(jewettRoomList, results);
+
+        filterSet.add(new AvailabilityFilter(false));
+        results = s.filter(roomList,filterSet);
+        ArrayList<Room> emptyList = new ArrayList<Room>();
+        Assert.assertEquals(emptyList, results);
     }
-
-    /*
-    @Test
-    public void testGetResults() {
-        Result r = new Result();
-        ArrayList<Room> filterSet();
-
-        Search s = new Search();
-
-    }
-
-     */
 
 }
