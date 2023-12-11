@@ -56,6 +56,8 @@
     <string name="availability">Available?</string>
     <string name="new_search">New Search</string>
     <string name="no_results_msg">No results</string>
+    <string name="available">Available</string>
+    <string name="not_available">Not available</string>
 
     <!-- for room profile screen -->
     <string name="back2">Back</string>

@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.vassar.cmpu203.myapplication.R;
+import edu.vassar.cmpu203.myapplication.databinding.CarouselItemBinding;
+import edu.vassar.cmpu203.myapplication.databinding.ReviewViewBinding;
 import edu.vassar.cmpu203.myapplication.model.Review;
 import edu.vassar.cmpu203.myapplication.model.Room;
 
@@ -25,6 +27,7 @@ import edu.vassar.cmpu203.myapplication.model.Room;
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.RViewHolder> {
     private Context context;
     ArrayList<Review> reviewArrayList;
+    ReviewViewBinding binding;
 
     /**
      * Constructs a new PhotoPagerAdapter that provide context array of image resources IDs.
@@ -39,8 +42,8 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.RViewHolde
     @NonNull
     @Override
     public RViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.review_view, parent, false);
-        return new RViewHolder(view);
+        this.binding = ReviewViewBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new RViewHolder(this.binding.getRoot());
     }
 
     @Override
@@ -59,15 +62,23 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.RViewHolde
         return reviewArrayList.size();
     }
 
-    static class RViewHolder extends RecyclerView.ViewHolder {
+    class RViewHolder extends RecyclerView.ViewHolder {
         TextView headlineView, reviewView;
         RatingBar fixedRatingView;
 
         RViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            fixedRatingView = ReviewAdapter.this.binding.fixedRatingBar;
+            headlineView = ReviewAdapter.this.binding.headlineText;
+            reviewView = ReviewAdapter.this.binding.reviewText;
+
+            /*
             fixedRatingView = itemView.findViewById(R.id.fixedRatingBar);
             headlineView = itemView.findViewById(R.id.headlineText);
             reviewView = itemView.findViewById(R.id.reviewText);
+
+             */
         }
 
     }

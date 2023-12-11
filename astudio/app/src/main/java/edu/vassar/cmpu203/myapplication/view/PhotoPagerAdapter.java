@@ -8,15 +8,19 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.vassar.cmpu203.myapplication.R;
+import edu.vassar.cmpu203.myapplication.databinding.CarouselItemBinding;
+import edu.vassar.cmpu203.myapplication.databinding.FragmentRoomProfileBinding;
+import edu.vassar.cmpu203.myapplication.databinding.ReviewViewBinding;
 
 /**
- * This class extetends from Recycler.View.Adapter and serves as an adapter.view for the Recycler.View
+ * This class extends from Recycler.View.Adapter and serves as an adapter.view for the Recycler.View
  * and displays a carousel of photos.
  */
 public class PhotoPagerAdapter extends RecyclerView.Adapter<PhotoPagerAdapter.PhotoViewHolder> {
 
     private Context context;
     private int[] imageResourceIds;
+    private CarouselItemBinding binding;
 
     /**
      * A new Adapter with the provided context and array of image resource IDs.
@@ -28,15 +32,23 @@ public class PhotoPagerAdapter extends RecyclerView.Adapter<PhotoPagerAdapter.Ph
         this.imageResourceIds = imageResourceIds;
     }
 
+    /**
+     *
+     * @param parent The ViewGroup into which the new View will be added after it is bound to
+     *               an adapter position.
+     * @param viewType The view type of the new View.
+     *
+     * @return
+     */
     @NonNull
     @Override
     public PhotoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.carousel_item, parent, false);
-        return new PhotoViewHolder(view);
+        this.binding = CarouselItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new PhotoViewHolder(this.binding.getRoot());
     }
 
     /**
-     * Called when the class needs a new PhotoViewHolder of the givin type to represent an item.
+     * Called when the class needs a new PhotoViewHolder of the given type to represent an item.
      * @param holder The ViewHolder which should be updated to represent the contents of the
      *        item at the given position in the data set.
      * @param position The position of the item within the adapter's data set.
@@ -67,7 +79,8 @@ public class PhotoPagerAdapter extends RecyclerView.Adapter<PhotoPagerAdapter.Ph
          */
         PhotoViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageView);
+            imageView = PhotoPagerAdapter.this.binding.imageView;
+            //imageView = itemView.findViewById(R.id.imageView);
         }
 
         void bind(int position) {

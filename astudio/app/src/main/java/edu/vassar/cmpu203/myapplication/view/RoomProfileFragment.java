@@ -59,9 +59,8 @@ public class RoomProfileFragment extends Fragment implements IRoomProfileView {
      * @param savedInstanceState If non-null, this fragment is being re-constructed
      * from a previous saved state as given here.
      *
-     * @return The view for the fragment UI or nulll.
+     * @return The view for the fragment UI or null.
      */
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

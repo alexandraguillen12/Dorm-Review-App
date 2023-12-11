@@ -1,7 +1,9 @@
 package edu.vassar.cmpu203.myapplication.view;
 
+/**
+ * Interface that defines the methods for a view that allows a user search for a room.
+ */
 public interface ISearchView {
-
 
     /**
      * Interface that classes interested in being notified of events happening

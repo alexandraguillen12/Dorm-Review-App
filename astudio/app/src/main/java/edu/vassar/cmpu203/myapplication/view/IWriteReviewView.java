@@ -1,6 +1,10 @@
 package edu.vassar.cmpu203.myapplication.view;
 
+/**
+ * Interface that defines the methods for a view that allows a user to write a review.
+ */
 public interface IWriteReviewView {
+
     /**
      * Interface that classes interested in being notified of events happening
      * to the view should implement.

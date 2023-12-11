@@ -22,10 +22,7 @@ import edu.vassar.cmpu203.myapplication.model.Room;
  */
 public class FirestoreFacade implements IPersistenceFacade{
 
-    /**
-     * The name of the FireStore collection used for storing reviews.
-     */
-    private static final String REVIEWS_COLLECTION = "reviews";
+    private static final String REVIEWS_COLLECTION = "reviews"; // the name of the FireStore collection used for storing reviews
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     /**
@@ -41,11 +38,10 @@ public class FirestoreFacade implements IPersistenceFacade{
     }
 
     /**
-     * Retrieves reviews associated itwh a specific room from the Firestore database notifies the listener.
+     * Retrieves reviews associated with a specific room from the Firestore database notifies the listener.
      * @param listener the observer to be notified of query result.
      * @param room The room that the reviews should be retrieved.
      */
-
     @Override
     public void retrieveReviews(@NonNull Listener listener, Room room) {
         ArrayList<Review> reviews = new ArrayList<Review>();

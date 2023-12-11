@@ -9,7 +9,7 @@
     android:background="?android:selectableItemBackground">
 
     <TextView
-        android:id="@+id/room_id"
+        android:id="@+id/roomId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -22,8 +22,8 @@
         android:id="@+id/houseName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/room_id"
-        android:layout_alignStart="@id/room_id"
+        android:layout_below="@id/roomId"
+        android:layout_alignStart="@id/roomId"
         android:text="@string/house"
         android:textColor="@color/black" />
 
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/houseName"
-        android:layout_alignStart="@id/room_id"
+        android:layout_alignStart="@id/roomId"
         android:textColor="@color/black"
         android:text="@string/floor" />
 
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/floorNum"
-        android:layout_alignStart="@id/room_id"
+        android:layout_alignStart="@id/roomId"
         android:textColor="@color/black"
         android:text="@string/room_type" />
 
@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/roomType"
-        android:layout_alignStart="@id/room_id"
+        android:layout_alignStart="@id/roomId"
         android:layout_marginBottom="10dp"
         android:textColor="@color/black"
         android:text="@string/availability" />
