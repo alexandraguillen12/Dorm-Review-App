@@ -161,9 +161,9 @@ Student -> SearchFragment: Specify House Name
 Student -> SearchFragment: Specify Floor
 Student -> SearchFragment: Specify roomType
 Student -> SearchFragment: Specify Availability
-SearchFragment -> MainActivity: OnAddedFilter(House, Floor, roomType, Availability)
-SearchFragment -> MainActivity: SearchDone()
-MainActivity -> Search: addFilters 
+SearchFragment -> MainActivity: onAddedFilters(House, Floor, roomType, Availability)
+SearchFragment -> MainActivity: onSearchDone()
+MainActivity -> Search: addFilters(House, Floor, roomType, Availability) 
 create HouseFilter
 Search --> HouseFilter: create 
 create FloorFilter 
@@ -172,13 +172,13 @@ create RoomTypeFilter
 Search --> RoomTypeFilter :create
 create AvailabilityFilter 
 Search --> AvailabilityFilter: create
-MainActivity -> Search: getResults 
-Search --> Search: doSearch 
-Search --> MainActivity: returnResults 
-MainActivity --> RoomSelectionFragment: createTakenResults
-RoomSelectionFragment --> Student: ShowResults 
-Student --> RoomSelectionFragment: selectRoom 
-
+MainActivity -> Search: getResults() 
+Search --> Search: do Search 
+Search --> MainActivity: return results 
+MainActivity --> RoomSelectionFragment: create
+RoomSelectionFragment --> Student: Display results 
+Student --> RoomSelectionFragment: Select Room 
+RoomSelectionFragment --> MainActivity: onSelectionDone()
 
 @enduml
 ```
